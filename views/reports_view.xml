@@ -57,12 +57,12 @@
                 <form>
                     <group>
                         <group>
-                            <field name="partner_id"/>
-                            <field name="project_activity_id"/>
+                           <field name="partner_id"/>
+                           <field name="project_activity_id"/>
                         </group>
                         <group>
-                            <field name="project_id" domain="[('partner_id', '=', partner_id)]"/>
-                            <field name="order_type"/>
+                           <field name="project_id" domain="[('partner_id', '=', partner_id)]"/>
+                           <field name="order_type"/>
                         </group>
                     </group>
                     <group>
@@ -87,6 +87,9 @@
                             <field name="partecipants_customer_description"/>
                             <field name="debit"/>
                         </group>
+                    </group>
+                    <group>
+                        <field name="notes_ids"/>
                     </group>
                     <group>
                         <field name="digital_sign" widget="signature"/>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+    <data>
+        <record id="notes_filter" model="ir.ui.view">
+            <field name="name">notes.filter</field>
+            <field name="model">report.notes</field>
+            <field name="arch" type="xml">
+                <search string="search notes">
+                    <field name="partner_id"/>
+                    <field name="date_and_hour"/>
+                    <field name="notes"/>
+                    <field name="worked"/>
+
+                    <group expand="0" string="Group By">
+                        <filter name="partner_id" string="Partner" context="{'group_by':'partner_id'}"/>
+                        <filter name="project_id" string="Project" context="{'group_by':'project_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="view_notes_tree" model="ir.ui.view">
+            <field name="name">view_notes_tree.tree</field>
+            <field name="model">report.notes</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="partner_id"/>
+                    <field name="date_and_hour"/>
+                    <field name="notes"/>
+                    <field name="worked"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_notes_form" model="ir.ui.view">
+            <field name="name">view_notes_form.form</field>
+            <field name="model">report.notes</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="partner_id"/>
+                    </group>
+                    <group>
+                        <field name="notes"/>
+                    </group>
+                    <group col="6">
+                        <group colspan="4">
+                            <field name="date_and_hour"/>
+                        </group>
+                        <group colspan="2">
+                           <field name="worked"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="report_id"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_notes" model="ir.actions.act_window">
+            <field name="name">Reports</field>
+            <field name="res_model">report.notes</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="action_menu_notes" parent="project.menu_project_management" name="Notes"  action="action_notes"/>
+    </data>
+</openerp>

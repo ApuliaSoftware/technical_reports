@@ -23,16 +23,30 @@ class Reports(models.Model):
     order_type = fields.Selection([('prepaid','Prepaid'),('consumptive','Consumptive')], string="Order type")
     debit = fields.Boolean()
     customer_note = fields.Text()
-    #notes_list_ids = fields.One2many('nuova classe')
     digital_sign = fields.Binary()
     display_name = fields.Char(compute = '_display_name')
+    notes_ids = fields.One2many("report.notes", "report_id", string="Notes")
 
     @api.multi
     def _display_name(self):
 
         for n in self:
+            if n.project_id.name != False and n.start_activity_date != False:
 
-            format_data = "%Y-%m-%d"
-            date_without_time = (n.start_activity_date.datetime, format_data)
-            sequence = [n.partner_id.name, n.project_id.name, date_without_time]
-            n.display_name = " - ".join(sequence)
+                #format_data = "%Y-%m-%d"
+                #convert = datetime.datetime.date(n.start_activity_date)
+                #date_without_time = datetime.strptime(convert, format_data)
+                sequence = [n.partner_id.name, n.project_id.name, n.start_activity_date]
+                n.display_name = " - ".join(sequence)
+
+            elif n.project_id.name != False and n.start_activity_date == False:
+                sequence = [n.partner_id.name, n.project_id.name]
+                n.display_name = " - ".join(sequence)
+
+            elif n.project_id.name == False and n.start_activity_date != False:
+                sequence = [n.partner_id.name, n.start_activity_date]
+                n.display_name = " - ".join(sequence)
+
+            else:
+                n.display_name = n.partner_id.name
+

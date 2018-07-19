@@ -7,6 +7,9 @@
     'category': 'Reports',
     'website': 'https://apuliasoftware.it',
     'depends': ['base', 'project', 'web_digital_sign'],
-    'data': ['views/reports_view.xml'],
+    'data': [
+        'views/notes_view.xml',
+        'views/reports_view.xml',
+        ],
     'installable': True
 }
