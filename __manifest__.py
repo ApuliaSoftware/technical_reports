@@ -6,7 +6,7 @@
     'description': "Technical reports",
     'category': 'Reports',
     'website': 'https://apuliasoftware.it',
-    'depends': ['base', 'project'],
+    'depends': ['base', 'project', 'web_digital_sign'],
     'data': ['views/reports_view.xml'],
     'installable': True
 }

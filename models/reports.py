@@ -1,10 +1,14 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import fields, models
+from odoo import fields, models, api
+from datetime import datetime
 
 class Reports(models.Model):
+
     _name = 'report.reports'
+
+    _rec_name = "display_name"
 
     partner_id = fields.Many2one("res.partner", string="Partner", required=True)
     project_id = fields.Many2one("project.project", string="Project")
@@ -20,4 +24,15 @@ class Reports(models.Model):
     debit = fields.Boolean()
     customer_note = fields.Text()
     #notes_list_ids = fields.One2many('nuova classe')
-    #firma
+    digital_sign = fields.Binary()
+    display_name = fields.Char(compute = '_display_name')
+
+    @api.multi
+    def _display_name(self):
+
+        for n in self:
+
+            format_data = "%Y-%m-%d"
+            date_without_time = (n.start_activity_date.datetime, format_data)
+            sequence = [n.partner_id.name, n.project_id.name, date_without_time]
+            n.display_name = " - ".join(sequence)
