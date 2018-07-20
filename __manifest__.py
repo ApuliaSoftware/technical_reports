@@ -10,6 +10,7 @@
     'data': [
         'views/notes_view.xml',
         'views/reports_view.xml',
-        ],
+        'views/task_view.xml'
+    ],
     'installable': True
 }

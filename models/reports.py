@@ -26,6 +26,8 @@ class Reports(models.Model):
     digital_sign = fields.Binary()
     display_name = fields.Char(compute = '_display_name')
     notes_ids = fields.One2many("report.notes", "report_id", string="Notes")
+    report_id = fields.Many2one("project.task")
+
 
     @api.multi
     def _display_name(self):
