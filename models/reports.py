@@ -4,6 +4,7 @@
 from odoo import fields, models, api
 from datetime import datetime
 
+
 class Reports(models.Model):
 
     _name = 'report.reports'
@@ -26,27 +27,26 @@ class Reports(models.Model):
     digital_sign = fields.Binary()
     display_name = fields.Char(compute = '_display_name')
     notes_ids = fields.One2many("report.notes", "report_id", string="Notes")
-    report_id = fields.Many2one("project.task")
 
 
     @api.multi
     def _display_name(self):
 
         for n in self:
-            if n.project_id.name != False and n.start_activity_date != False:
 
-                #format_data = "%Y-%m-%d"
-                #convert = datetime.datetime.date(n.start_activity_date)
-                #date_without_time = datetime.strptime(convert, format_data)
-                sequence = [n.partner_id.name, n.project_id.name, n.start_activity_date]
+            n.date_without_time = datetime.strptime(n.start_activity_date, "%Y-%m-%d %H:%M:%S").date()
+            n.convert_date=datetime.strftime(n.date_without_time, "%Y-%m-%d")
+
+            if n.project_id.name != False and n.convert_date != False:
+                sequence = [n.partner_id.name, n.project_id.name, n.convert_date]
                 n.display_name = " - ".join(sequence)
 
-            elif n.project_id.name != False and n.start_activity_date == False:
+            elif n.project_id.name != False and n.convert_date == False:
                 sequence = [n.partner_id.name, n.project_id.name]
                 n.display_name = " - ".join(sequence)
 
-            elif n.project_id.name == False and n.start_activity_date != False:
-                sequence = [n.partner_id.name, n.start_activity_date]
+            elif n.project_id.name == False and n.convert_date != False:
+                sequence = [n.partner_id.name, n.convert_date]
                 n.display_name = " - ".join(sequence)
 
             else:
