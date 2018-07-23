@@ -6,9 +6,9 @@
             <field name="name">report.reports.search.form</field>
             <field name="model">report.reports</field>
             <field name="arch" type="xml">
-                    <search string="search reports">
-                            <field name="project_activity_id"/>
-                    </search>
+                <search string="search reports">
+                    <field name="project_activity_id"/>
+                </search>
             </field>
         </record>
 
@@ -22,7 +22,6 @@
                 'default_project_activity_id': active_id,
                 }
             </field>
-
             <field name="search_view_id" ref="view_technical_reports_search_form"/>
         </record>
 
@@ -31,9 +30,7 @@
             <field name="model">project.task</field>
             <field name="inherit_id" ref="project.view_task_form2"/>
             <field name="arch" type="xml">
-
                 <xpath expr="//button" position="before">
-
                     <button name="%(act_technical_reports)d" type="action" string="Report tasks" widget="statinfo"
                             class="oe_stat_button" icon="fa-list">
                         <field name="technical_reports_count" widget="statinfo" nolabel="1"/>

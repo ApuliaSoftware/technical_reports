@@ -10,7 +10,6 @@
                     <field name="date_and_hour"/>
                     <field name="notes"/>
                     <field name="worked"/>
-
                     <group expand="0" string="Group By">
                         <filter name="partner_id" string="Partner" context="{'group_by':'partner_id'}"/>
                         <filter name="project_id" string="Project" context="{'group_by':'project_id'}"/>

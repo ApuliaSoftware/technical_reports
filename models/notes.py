@@ -2,7 +2,7 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 from odoo import fields, models, api
-from datetime import datetime
+
 
 class Notes(models.Model):
 
@@ -19,7 +19,5 @@ class Notes(models.Model):
 
     @api.multi
     def _display_name(self):
-
         for n in self:
-
             n.display_name = n.partner_id.name

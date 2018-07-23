@@ -66,9 +66,6 @@
                         </group>
                     </group>
                     <group>
-                        <field name="users_ids"/>
-                    </group>
-                    <group>
                         <group>
                             <field name="start_journey_date"/>
                             <field name="end_journey_date"/>
@@ -78,18 +75,35 @@
                             <field name="end_activity_date"/>
                         </group>
                     </group>
-                    <group>
-                        <group>
+                    <notebook>
+                        <page string="Activity">
                             <field name="activity_description"/>
-                            <field name="customer_note"/>
-                        </group>
-                        <group>
-                            <field name="partecipants_customer_description"/>
-                            <field name="debit"/>
-                        </group>
-                    </group>
+                        </page>
+                         <page string="Notes">
+                             <field name="notes_ids">
+                                 <tree>
+                                     <field name="date_and_hour"/>
+                                     <field name="notes"/>
+                                     <field name="worked"/>
+                                 </tree>
+                             </field>
+                         </page>
+                         <page string="Formation">
+                             <group>
+                                 <field name="users_ids"/>
+                                 <field name="partecipants_customer_description"/>
+                             </group>
+                         </page>
+                         <page string="Customer note">
+                             <field name="customer_note"/>
+                         </page>
+                        <page string="Account">
+                            <group>
+                                <field name="debit" string="Debit"/>
+                            </group>
+                        </page>
+                    </notebook>
                     <group>
-                        <field name="notes_ids"/>
                     </group>
                     <group>
                         <field name="digital_sign" widget="signature"/>
