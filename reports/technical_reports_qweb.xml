@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+    <data>
+        <template id="technical_reports_qweb">
+            <t t-call="report.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="report.external_layout">
+                        <div class="page">
+
+                            <p class="row">
+                                <p>Spett. <strong><span t-field="o.partner_id.name"/></strong><br/>
+                                    <span t-field="o.partner_id.street"></span><br/>
+                                    <span t-field="o.partner_id.city"></span>
+                                    <span t-field="o.partner_id.zip"></span><br/>
+                                    <span t-field="o.partner_id.country_id"></span>
+                                </p>
+                            </p><br/>
+
+                            <h4><strong>Technical report n° </strong><span t-field="o.name"/></h4><br/>
+
+                            <div class="row">
+                                <div class="col-xs-12">
+                                     <strong>Project: </strong><span t-field="o.project_id.name"/> -
+                                    <strong>Activity: </strong><span t-field="o.project_activity_id.name"/> -
+                                    <strong>Order type: </strong><span t-field="o.order_type"/>
+                                </div>
+                            </div><br/>
+
+                            <div class="row">
+                                <div class="col-xs-4"><strong>Start journey: </strong><span t-field="o.start_journey_date"/></div>
+                                <div class="col-xs-4"><strong>End journey: </strong><span t-field="o.end_journey_date"/></div>
+                                <div class="col-xs-4"><strong>Time journey: </strong><t t-esc="timediff(o.end_journey_date, o.start_journey_date)"/></div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xs-4"><strong>Start activity: </strong><span t-field="o.start_activity_date"/></div>
+                                <div class="col-xs-4"><strong>End activity: </strong><span t-field="o.end_activity_date"/></div>
+                                 <div class="col-xs-4"><strong>Time activity: </strong><t t-esc="timediff(o.end_activity_date, o.start_activity_date)"/></div>
+                            </div><br/><br/><br/>
+
+                            <strong>ACTIVITY</strong>
+                            <table class="table table-bordered">
+                                <tr><th>Description</th></tr>
+                                <tr><td><span t-field="o.activity_description"/></td></tr>
+                            </table><br/>
+
+                            <strong>NOTES</strong>
+                            <table class="table table-bordered">
+                                <t t-set="count" t-value="0"/>
+                                <thead>
+                                    <tr>
+                                        <th style="text-align:center;">Note</th>
+                                        <th style="text-align:center;">Date</th>
+                                        <th style="text-align:center;">Worked</th>
+                                    </tr>
+                                </thead>
+                                <t t-foreach="o.notes_ids" t-as="n">
+                                    <tr>
+                                        <td width="65%"> <span t-field="n.notes"/> </td>
+                                        <td width="25%" style="text-align:center;"> <span t-field="n.date_and_hour"/> </td>
+                                        <td width="10%" style="text-align:center;"><t t-if="n.worked">Yes</t>
+                                            <t t-if="n.worked==False">No</t>
+                                        </td>
+                                    </tr>
+                                    <t t-set="count" t-value="count+1"/>
+                                </t>
+                                <tr><td colspan="4" style="text-align:center;">TOTAL NOTES:<t t-esc="count"/> </td></tr>
+                            </table><br/>
+
+                            <strong>FORMATION</strong>
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>Trainer User</th>
+                                </tr>
+                                <t t-foreach="o.users_ids" t-as="n">
+                                   <tr><td><span t-field="n.name"/></td></tr>
+                                </t>
+                            </table><br/>
+
+                            <strong>PARTECIPATING CUSTOMERS</strong>
+                            <table class="table table-bordered">
+                                <tr><th>Description</th></tr>
+                                <tr><td><span t-field="o.partecipants_customer_description"/></td></tr>
+                            </table><br/>
+
+                            <strong>CUSTOMER NOTES</strong>
+                            <table class="table table-bordered">
+                                <tr><th>Description</th></tr>
+                                <tr><td><span t-field="o.customer_note"/></td></tr>
+                            </table><br/><br/>
+
+                            <strong>SIGNATURE:</strong>
+                            <div class="col-xs-12">
+                                <img t-if="o.digital_sign" t-att-src="'data:image/png;base64,%s' % o.digital_sign"
+                                     style="max-height:45px;"
+                                />
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</openerp>

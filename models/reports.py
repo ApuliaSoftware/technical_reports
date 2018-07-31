@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import fields, models, api
+from odoo import fields, models, api, _
 from datetime import datetime
 
 
@@ -11,6 +11,7 @@ class Reports(models.Model):
 
     _rec_name = "display_name"
 
+    name = fields.Char(string='Technical report reference', required=True, copy=False, readonly=True, default=lambda self: _('New'))
     partner_id = fields.Many2one("res.partner", string="Partner", required=True)
     project_id = fields.Many2one("project.project", string="Project")
     project_activity_id = fields.Many2one("project.task",
@@ -45,3 +46,10 @@ class Reports(models.Model):
                 sequence.append(n.convert_date)
 
             n.display_name = " - ".join(sequence)
+
+    @api.model
+    def create(self, vals):
+        if vals.get('name', _('New')) == _('New'):
+            vals['name'] = self.env['ir.sequence'].next_by_code('technical.reports') or _('New')
+        result = super(Reports, self).create(vals)
+        return result

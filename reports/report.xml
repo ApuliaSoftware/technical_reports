@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+    <data>
+        <record id="paperformat_technical_report" model="report.paperformat">
+            <field name="name">Technical reports</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">3</field>
+            <field name="margin_bottom">3</field>
+            <field name="margin_left">3</field>
+            <field name="margin_right">3</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">3</field>
+            <field name="dpi">80</field>
+        </record>
+
+        <report
+            id="technical_reports"
+            model="report.reports"
+            string="Internal report"
+            report_type="qweb-pdf"
+            name="technical_reports.technical_reports_qweb"
+            file="technical_reports.technical_reports_qweb"
+            attachment="('I' + object.name + '.pdf')"
+            attachment_use="1"
+        />
+        <report
+            id="external_reports"
+            model="report.reports"
+            string="External report"
+            report_type="qweb-pdf"
+            name="technical_reports.external_reports_qweb"
+            file="technical_reports.external_reports_qweb"
+            attachment="('E' + object.name + '.pdf')"
+            attachment_use="1"
+        />
+
+        <record id="technical_reports" model="ir.actions.report.xml">
+            <field name="paperformat_id" ref="technical_reports.paperformat_technical_report"/>
+        </record>
+
+        <record id="external_reports" model="ir.actions.report.xml">
+            <field name="paperformat_id" ref="technical_reports.paperformat_technical_report"/>
+        </record>
+    </data>
+</openerp>
