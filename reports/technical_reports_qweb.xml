@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<openerp>
+<odoo>
     <data>
         <template id="technical_reports_qweb">
             <t t-call="report.html_container">
@@ -19,13 +19,11 @@
                             <h4><strong>Technical report n° </strong><span t-field="o.name"/></h4><br/>
 
                             <div class="row">
-                                <div class="col-xs-12">
-                                     <strong>Project: </strong><span t-field="o.project_id.name"/> -
-                                    <strong>Activity: </strong><span t-field="o.project_activity_id.name"/> -
-                                    <strong>Order type: </strong><span t-field="o.order_type"/>
-                                </div>
-                            </div><br/>
-
+                                <div class="col-xs-4"><strong>Project: </strong><span t-field="o.project_id.name"/></div>
+                                <div class="col-xs-4"><strong>Activity: </strong><span t-field="o.project_activity_id.name"/></div>
+                                <div class="col-xs-4"><strong>Order type: </strong><span t-field="o.order_type"/></div>
+                            </div>
+                            <br/>
                             <div class="row">
                                 <div class="col-xs-4"><strong>Start journey: </strong><span t-field="o.start_journey_date"/></div>
                                 <div class="col-xs-4"><strong>End journey: </strong><span t-field="o.end_journey_date"/></div>
@@ -40,18 +38,18 @@
 
                             <strong>ACTIVITY</strong>
                             <table class="table table-bordered">
-                                <tr><th>Description</th></tr>
+                                <tr><th style="background:grey; color:white;">Description</th></tr>
                                 <tr><td><span t-field="o.activity_description"/></td></tr>
                             </table><br/>
 
-                            <strong>NOTES</strong>
+                            <div class="notes"><strong>NOTES</strong></div>
                             <table class="table table-bordered">
                                 <t t-set="count" t-value="0"/>
                                 <thead>
-                                    <tr>
-                                        <th style="text-align:center;">Note</th>
-                                        <th style="text-align:center;">Date</th>
-                                        <th style="text-align:center;">Worked</th>
+                                    <tr style="background:grey; color:white;">
+                                        <th width="65%" style="text-align:center;">Note</th>
+                                        <th width="25%" style="text-align:center;">Date</th>
+                                        <th width="10%" style="text-align:center;">Worked</th>
                                     </tr>
                                 </thead>
                                 <t t-foreach="o.notes_ids" t-as="n">
@@ -64,13 +62,13 @@
                                     </tr>
                                     <t t-set="count" t-value="count+1"/>
                                 </t>
-                                <tr><td colspan="4" style="text-align:center;">TOTAL NOTES:<t t-esc="count"/> </td></tr>
-                            </table><br/>
-
+                            </table>
+                            <div style="text-align:center;">TOTAL NOTES:<t t-esc="count"/></div>
+                            <br/>
                             <strong>FORMATION</strong>
                             <table class="table table-bordered">
                                 <tr>
-                                    <th>Trainer User</th>
+                                    <th style="background:grey; color:white;">Trainer User</th>
                                 </tr>
                                 <t t-foreach="o.users_ids" t-as="n">
                                    <tr><td><span t-field="n.name"/></td></tr>
@@ -79,21 +77,22 @@
 
                             <strong>PARTECIPATING CUSTOMERS</strong>
                             <table class="table table-bordered">
-                                <tr><th>Description</th></tr>
+                                <tr><th style="background:grey; color:white;">Description</th></tr>
                                 <tr><td><span t-field="o.partecipants_customer_description"/></td></tr>
                             </table><br/>
 
                             <strong>CUSTOMER NOTES</strong>
                             <table class="table table-bordered">
-                                <tr><th>Description</th></tr>
+                                <tr><th style="background:grey; color:white;">Description</th></tr>
                                 <tr><td><span t-field="o.customer_note"/></td></tr>
                             </table><br/><br/>
 
-                            <strong>SIGNATURE:</strong>
-                            <div class="col-xs-12">
-                                <img t-if="o.digital_sign" t-att-src="'data:image/png;base64,%s' % o.digital_sign"
-                                     style="max-height:45px;"
-                                />
+                            <div style="text-align:right;"><strong>SIGNATURE:</strong>
+                                <div class="col-xs-12">
+                                    <img t-if="o.digital_sign" t-att-src="'data:image/png;base64,%s' % o.digital_sign"
+                                         style="max-height:45px;"
+                                    />
+                                </div>
                             </div>
                         </div>
                     </t>
@@ -101,4 +100,4 @@
             </t>
         </template>
     </data>
-</openerp>
+</odoo>

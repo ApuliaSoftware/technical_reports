@@ -2,7 +2,8 @@
 <odoo>
 
     <template id="external_reports_qweb" inherit_id="technical_reports.technical_reports_qweb" primary="True">
-            <xpath expr="//table[2]" position="replace"></xpath>
+        <xpath expr="//div[@class='notes']" position="replace"></xpath>
+        <xpath expr="//table[2]" position="replace"></xpath>
     </template>
 
 </odoo>
