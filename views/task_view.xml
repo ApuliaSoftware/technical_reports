@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
+<odoo>
     <data>
-
-        <record id="view_technical_reports_search_form" model="ir.ui.view">
-            <field name="name">report.reports.search.form</field>
-            <field name="model">report.reports</field>
-            <field name="arch" type="xml">
-                <search string="search reports">
-                    <field name="project_activity_id"/>
-                </search>
-            </field>
-        </record>
-
         <record id="act_technical_reports" model="ir.actions.act_window">
             <field name="name">Technical reports</field>
             <field name="res_model">report.reports</field>
@@ -22,7 +11,6 @@
                 'default_project_activity_id': active_id,
                 }
             </field>
-            <field name="search_view_id" ref="view_technical_reports_search_form"/>
         </record>
 
         <record model="ir.ui.view" id="report_task_view">
@@ -40,4 +28,4 @@
         </record>
 
     </data>
-</openerp>
+</odoo>

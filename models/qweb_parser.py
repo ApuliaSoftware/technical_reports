@@ -19,7 +19,8 @@ class TechnicalReportsQweb(models.AbstractModel):
             'timediff':self._timediff,
             'docs': docs,
         }
-        return self.env['report'].render('technical_reports.technical_reports_qweb', docargs)
+        return self.env['report'].render(
+            'technical_reports.technical_reports_qweb', docargs)
 
     def _timediff(self, toDate, fromDate):
         if toDate and fromDate:
@@ -43,7 +44,8 @@ class ExternalReportsQweb(models.AbstractModel):
             'timediff':self._timediff,
             'docs': docs,
         }
-        return self.env['report'].render('technical_reports.external_reports_qweb', docargs)
+        return self.env['report'].render(
+            'technical_reports.external_reports_qweb', docargs)
 
     def _timediff(self, toDate, fromDate):
         if toDate and fromDate:

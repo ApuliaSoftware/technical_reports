@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<openerp>
+<odoo>
     <data>
         <record id="reports_filter" model="ir.ui.view">
             <field name="name">reports.filter</field>
@@ -61,7 +61,7 @@
                         <group>
                             <field name="name" colspan="2"/>
                             <field name="partner_id" colspan="2"/>
-                            <field name="project_activity_id" colspan="2"/>
+                            <field name="project_activity_id" colspan="2" domain="[('project_id', '=', project_id)]"/>
                         </group>
                         <group>
                            <field name="project_id" domain="[('partner_id', '=', partner_id)]"/>
@@ -124,4 +124,4 @@
 
         <menuitem id="action_menu_reports" parent="project.menu_project_management" name="Technical reports"  action="action_reports"/>
     </data>
-</openerp>
+</odoo>

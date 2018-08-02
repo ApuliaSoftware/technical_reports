@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<openerp>
+<odoo>
     <data>
         <record id="paperformat_technical_report" model="report.paperformat">
             <field name="name">Technical reports</field>
@@ -44,4 +44,4 @@
             <field name="paperformat_id" ref="technical_reports.paperformat_technical_report"/>
         </record>
     </data>
-</openerp>
+</odoo>
