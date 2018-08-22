@@ -1,0 +1,420 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* technical_reports
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-08-22 08:52+0000\n"
+"PO-Revision-Date: 2018-08-22 08:52+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: technical_reports
+#: model:ir.ui.view,arch_db:technical_reports.technical_reports_qweb
+msgid "<br/>\n"
+"\n"
+"                            <strong>CUSTOMER NOTES</strong>"
+msgstr "<br/>\n"
+"\n"
+"                            <strong>NOTE DEL CLIENTE</strong>"
+
+#. module: technical_reports
+#: model:ir.ui.view,arch_db:technical_reports.technical_reports_qweb
+msgid "<br/>\n"
+"\n"
+"                            <strong>PARTECIPATING CUSTOMERS</strong>"
+msgstr "<br/>\n"
+"\n"
+"                            <strong>CLIENTI PARTECIPANTI</strong>"
+
+#. module: technical_reports
+#: model:ir.ui.view,arch_db:technical_reports.technical_reports_qweb
+msgid "<br/>\n"
+"                            <strong>FORMATION</strong>"
+msgstr "<br/>\n"
+"                            <strong>FORMAZIONE</strong>"
+
+#. module: technical_reports
+#: model:ir.ui.view,arch_db:technical_reports.technical_reports_qweb
+msgid "<br/><br/><br/>\n"
+"\n"
+"                            <strong>ACTIVITY</strong>"
+msgstr "<br/><br/><br/>\n"
+"\n"
+"                            <strong>ATTIVITA'</strong>"
+
+#. module: technical_reports
+#: model:ir.ui.view,arch_db:technical_reports.technical_reports_qweb
+msgid "<strong>Activity: </strong>"
+msgstr "<strong>Attività: </strong>"
+
+#. module: technical_reports
+#: model:ir.ui.view,arch_db:technical_reports.technical_reports_qweb
+msgid "<strong>End activity: </strong>"
+msgstr "<strong>Fine attività: </strong>"
+
+#. module: technical_reports
+#: model:ir.ui.view,arch_db:technical_reports.technical_reports_qweb
+msgid "<strong>End journey: </strong>"
+msgstr "<strong>Fine viaggio: </strong>"
+
+#. module: technical_reports
+#: model:ir.ui.view,arch_db:technical_reports.technical_reports_qweb
+msgid "<strong>NOTES</strong>"
+msgstr "<strong>APPUNTI</strong>"
+
+#. module: technical_reports
+#: model:ir.ui.view,arch_db:technical_reports.technical_reports_qweb
+msgid "<strong>Order type: </strong>"
+msgstr "<strong>Tipo ordine: </strong>"
+
+#. module: technical_reports
+#: model:ir.ui.view,arch_db:technical_reports.technical_reports_qweb
+msgid "<strong>Project: </strong>"
+msgstr "<strong>Progetto: </strong>"
+
+#. module: technical_reports
+#: model:ir.ui.view,arch_db:technical_reports.technical_reports_qweb
+msgid "<strong>SIGNATURE:</strong>"
+msgstr "<strong>FIRMA:</strong>"
+
+#. module: technical_reports
+#: model:ir.ui.view,arch_db:technical_reports.technical_reports_qweb
+msgid "<strong>Start activity: </strong>"
+msgstr "<strong>Inizio attività: </strong>"
+
+#. module: technical_reports
+#: model:ir.ui.view,arch_db:technical_reports.technical_reports_qweb
+msgid "<strong>Start journey: </strong>"
+msgstr "<strong>Inizio viaggio: </strong>"
+
+#. module: technical_reports
+#: model:ir.ui.view,arch_db:technical_reports.technical_reports_qweb
+msgid "<strong>Technical report n° </strong>"
+msgstr "<strong>Rapporto tecnico n° </strong>"
+
+#. module: technical_reports
+#: model:ir.ui.view,arch_db:technical_reports.technical_reports_qweb
+msgid "<strong>Time activity: </strong>"
+msgstr "<strong>Durata attività: </strong>"
+
+#. module: technical_reports
+#: model:ir.ui.view,arch_db:technical_reports.technical_reports_qweb
+msgid "<strong>Time journey: </strong>"
+msgstr "<strong>Durata viaggio: </strong>"
+
+#. module: technical_reports
+#: model:ir.ui.view,arch_db:technical_reports.view_reports_form
+msgid "Account"
+msgstr "Account"
+
+#. module: technical_reports
+#: model:ir.ui.view,arch_db:technical_reports.reports_filter
+#: model:ir.ui.view,arch_db:technical_reports.view_reports_form
+msgid "Activity"
+msgstr "Attività"
+
+#. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_report_reports_activity_description
+msgid "Activity description"
+msgstr "Descrizione attività"
+
+#. module: technical_reports
+#: model:ir.ui.view,arch_db:technical_reports.reports_filter
+msgid "Comsumptive"
+msgstr "Consuntivo"
+
+#. module: technical_reports
+#: selection:report.reports,order_type:0
+msgid "Consumptive"
+msgstr "Consuntivo"
+
+#. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_report_notes_create_uid
+#: model:ir.model.fields,field_description:technical_reports.field_report_reports_create_uid
+msgid "Created by"
+msgstr "Creato da"
+
+#. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_report_notes_create_date
+#: model:ir.model.fields,field_description:technical_reports.field_report_reports_create_date
+msgid "Created on"
+msgstr "Creato il"
+
+#. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_report_reports_customer_note
+#: model:ir.ui.view,arch_db:technical_reports.view_reports_form
+msgid "Customer note"
+msgstr "Note del cliente"
+
+#. module: technical_reports
+#: model:ir.ui.view,arch_db:technical_reports.technical_reports_qweb
+msgid "Date"
+msgstr "Data"
+
+#. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_report_notes_date_and_hour
+msgid "Date and hour"
+msgstr "Data e Ora"
+
+#. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_report_reports_debit
+#: model:ir.ui.view,arch_db:technical_reports.reports_filter
+#: model:ir.ui.view,arch_db:technical_reports.view_reports_form
+msgid "Debit"
+msgstr "Addebitato"
+
+#. module: technical_reports
+#: model:ir.ui.view,arch_db:technical_reports.technical_reports_qweb
+msgid "Description"
+msgstr "Descrizione"
+
+#. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_report_reports_digital_sign
+msgid "Digital sign"
+msgstr "Firma digitale"
+
+#. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_report_notes_display_name
+#: model:ir.model.fields,field_description:technical_reports.field_report_reports_display_name
+#: model:ir.model.fields,field_description:technical_reports.field_report_technical_reports_external_reports_qweb_display_name
+#: model:ir.model.fields,field_description:technical_reports.field_report_technical_reports_technical_reports_qweb_display_name
+msgid "Display Name"
+msgstr "Nome Visualizzato"
+
+#. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_report_reports_end_activity_date
+msgid "End activity date"
+msgstr "Data fine attività"
+
+#. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_report_reports_end_journey_date
+msgid "End journey date"
+msgstr "Data fine viaggio"
+
+#. module: technical_reports
+#: model:ir.actions.report.xml,name:technical_reports.external_reports
+msgid "External report"
+msgstr "Rapporto esterno"
+
+#. module: technical_reports
+#: model:ir.ui.view,arch_db:technical_reports.view_reports_form
+msgid "Formation"
+msgstr "Formazione"
+
+#. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_report_reports_users_ids
+msgid "Formation users list"
+msgstr "Lista utenti della formazione"
+
+#. module: technical_reports
+#: model:ir.ui.view,arch_db:technical_reports.notes_filter
+#: model:ir.ui.view,arch_db:technical_reports.reports_filter
+msgid "Group By"
+msgstr "Raggruppa per"
+
+#. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_report_notes_id
+#: model:ir.model.fields,field_description:technical_reports.field_report_reports_id
+#: model:ir.model.fields,field_description:technical_reports.field_report_technical_reports_external_reports_qweb_id
+#: model:ir.model.fields,field_description:technical_reports.field_report_technical_reports_technical_reports_qweb_id
+msgid "ID"
+msgstr "ID"
+
+#. module: technical_reports
+#: model:ir.actions.report.xml,name:technical_reports.technical_reports
+msgid "Internal report"
+msgstr "Rapporto interno"
+
+#. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_report_notes___last_update
+#: model:ir.model.fields,field_description:technical_reports.field_report_reports___last_update
+#: model:ir.model.fields,field_description:technical_reports.field_report_technical_reports_external_reports_qweb___last_update
+#: model:ir.model.fields,field_description:technical_reports.field_report_technical_reports_technical_reports_qweb___last_update
+msgid "Last Modified on"
+msgstr "Ultima modifica il"
+
+#. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_report_notes_write_uid
+#: model:ir.model.fields,field_description:technical_reports.field_report_reports_write_uid
+msgid "Last Updated by"
+msgstr "Ultima modifica di"
+
+#. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_report_notes_write_date
+#: model:ir.model.fields,field_description:technical_reports.field_report_reports_write_date
+msgid "Last Updated on"
+msgstr "Ultima modifica il"
+
+#. module: technical_reports
+#: code:addons/technical_reports/models/reports.py:15
+#: code:addons/technical_reports/models/reports.py:53
+#: code:addons/technical_reports/models/reports.py:55
+#, python-format
+msgid "New"
+msgstr "Nuovo"
+
+#. module: technical_reports
+#: model:ir.ui.view,arch_db:technical_reports.technical_reports_qweb
+msgid "No"
+msgstr "No"
+
+#. module: technical_reports
+#: model:ir.ui.view,arch_db:technical_reports.reports_filter
+msgid "Not debit"
+msgstr "Non addebitato"
+
+#. module: technical_reports
+#: model:ir.ui.view,arch_db:technical_reports.technical_reports_qweb
+msgid "Note"
+msgstr "Appunto"
+
+#. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_report_notes_notes
+#: model:ir.model.fields,field_description:technical_reports.field_report_reports_notes_ids
+#: model:ir.ui.menu,name:technical_reports.action_menu_notes
+#: model:ir.ui.view,arch_db:technical_reports.view_reports_form
+msgid "Notes"
+msgstr "Appunti"
+
+#. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_report_reports_order_type
+msgid "Order type"
+msgstr "Tipo ordine"
+
+#. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_report_reports_partecipants_customer_description
+msgid "Partecipants customer description"
+msgstr "Descrizione dei clienti partecipanti"
+
+#. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_report_notes_partner_id
+#: model:ir.model.fields,field_description:technical_reports.field_report_reports_partner_id
+#: model:ir.ui.view,arch_db:technical_reports.notes_filter
+#: model:ir.ui.view,arch_db:technical_reports.reports_filter
+msgid "Partner"
+msgstr "Cliente"
+
+#. module: technical_reports
+#: model:ir.ui.view,arch_db:technical_reports.reports_filter
+#: selection:report.reports,order_type:0
+msgid "Prepaid"
+msgstr "Prepagato"
+
+#. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_report_reports_project_id
+#: model:ir.ui.view,arch_db:technical_reports.reports_filter
+msgid "Project"
+msgstr "Progetto"
+
+#. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_report_reports_project_activity_id
+msgid "Project activity"
+msgstr "Attività del progetto"
+
+#. module: technical_reports
+#: model:ir.ui.view,arch_db:technical_reports.report_task_view
+msgid "Report tasks"
+msgstr "Attività del rapporto"
+
+#. module: technical_reports
+#: model:ir.actions.act_window,name:technical_reports.action_notes
+#: model:ir.actions.act_window,name:technical_reports.action_reports
+msgid "Reports"
+msgstr "Rapporti"
+
+#. module: technical_reports
+#: model:ir.ui.view,arch_db:technical_reports.technical_reports_qweb
+msgid "Spett."
+msgstr "Spett."
+
+#. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_report_reports_start_activity_date
+msgid "Start activity date"
+msgstr "Data di inizio attività"
+
+#. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_report_reports_start_journey_date
+msgid "Start journey date"
+msgstr "Data di inizio viaggio"
+
+#. module: technical_reports
+#: model:ir.ui.view,arch_db:technical_reports.technical_reports_qweb
+msgid "TOTAL NOTES:"
+msgstr "N. APPUNTI"
+
+#. module: technical_reports
+#: model:ir.model,name:technical_reports.model_project_task
+msgid "Task"
+msgstr "Attività"
+
+#. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_report_notes_report_id
+msgid "Technical report"
+msgstr "Rapporto tecnico"
+
+#. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_report_reports_name
+msgid "Technical report reference"
+msgstr "ID"
+
+#. module: technical_reports
+#: model:ir.actions.act_window,name:technical_reports.act_technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_project_task_technical_reports_count
+#: model:ir.model.fields,field_description:technical_reports.field_project_task_technical_reports_ids
+#: model:ir.ui.menu,name:technical_reports.action_menu_reports
+msgid "Technical reports"
+msgstr "Rapporti tecnici"
+
+#. module: technical_reports
+#: model:ir.ui.view,arch_db:technical_reports.technical_reports_qweb
+msgid "Trainer User"
+msgstr "Utente formatore"
+
+#. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_report_notes_worked
+#: model:ir.ui.view,arch_db:technical_reports.technical_reports_qweb
+msgid "Worked"
+msgstr "Lavorato"
+
+#. module: technical_reports
+#: model:ir.ui.view,arch_db:technical_reports.technical_reports_qweb
+msgid "Yes"
+msgstr "Si"
+
+#. module: technical_reports
+#: model:ir.model,name:technical_reports.model_report_notes
+msgid "report.notes"
+msgstr "report.notes"
+
+#. module: technical_reports
+#: model:ir.model,name:technical_reports.model_report_reports
+msgid "report.reports"
+msgstr "report.reports"
+
+#. module: technical_reports
+#: model:ir.model,name:technical_reports.model_report_technical_reports_external_reports_qweb
+msgid "report.technical_reports.external_reports_qweb"
+msgstr "report.technical_reports.external_reports_qweb"
+
+#. module: technical_reports
+#: model:ir.model,name:technical_reports.model_report_technical_reports_technical_reports_qweb
+msgid "report.technical_reports.technical_reports_qweb"
+msgstr "report.technical_reports.technical_reports_qweb"
+
+#. module: technical_reports
+#: model:ir.ui.view,arch_db:technical_reports.notes_filter
+msgid "search notes"
+msgstr "Ricerca appunti"
+
+#. module: technical_reports
+#: model:ir.ui.view,arch_db:technical_reports.reports_filter
+msgid "search reports"
+msgstr "Ricerca rapporti"
+

@@ -23,17 +23,15 @@
             name="technical_reports.technical_reports_qweb"
             file="technical_reports.technical_reports_qweb"
             attachment="('I' + object.name + '.pdf')"
-            attachment_use="1"
         />
         <report
             id="external_reports"
             model="report.reports"
             string="External report"
             report_type="qweb-pdf"
-            name="technical_reports.external_reports_qweb"
-            file="technical_reports.external_reports_qweb"
+            name="technical_reports.technical_reports_external_qweb"
+            file="technical_reports.technical_reports_external_qweb"
             attachment="('E' + object.name + '.pdf')"
-            attachment_use="1"
         />
 
         <record id="technical_reports" model="ir.actions.report.xml">

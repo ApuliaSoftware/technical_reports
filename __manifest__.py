@@ -11,9 +11,9 @@
         'views/reports_view.xml',
         'views/notes_view.xml',
         'views/task_view.xml',
-        'reports/report.xml',
         'reports/technical_reports_qweb.xml',
         'reports/external_reports_qweb.xml',
+        'reports/report.xml',
         'data/ir_sequence_data.xml'
     ],
     'installable': True

@@ -8,11 +8,9 @@
                 <search string="search notes">
                     <field name="partner_id"/>
                     <field name="date_and_hour"/>
-                    <field name="notes"/>
                     <field name="worked"/>
                     <group expand="0" string="Group By">
                         <filter name="partner_id" string="Partner" context="{'group_by':'partner_id'}"/>
-                        <filter name="project_id" string="Project" context="{'group_by':'project_id'}"/>
                     </group>
                 </search>
             </field>
@@ -26,7 +24,6 @@
                 <tree>
                     <field name="partner_id"/>
                     <field name="date_and_hour"/>
-                    <field name="notes"/>
                     <field name="worked"/>
                 </tree>
             </field>
@@ -53,7 +50,8 @@
                         </group>
                     </group>
                     <group>
-                        <field name="report_id" domain="[('partner_id', '=', partner_id)]"/>
+                        <field name="report_id" domain="[('partner_id', '=', partner_id)]"
+                               options="{'no_create_edit':True}"/>
                     </group>
                 </form>
             </field>

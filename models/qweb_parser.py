@@ -30,7 +30,7 @@ class TechnicalReportsQweb(models.AbstractModel):
 
 
 class ExternalReportsQweb(models.AbstractModel):
-    _name = 'report.technical_reports.external_reports_qweb'
+    _name = 'report.technical_reports.technical_reports_external_qweb'
 
     @api.multi
     def render_html(self, docids, data=None):
@@ -45,7 +45,7 @@ class ExternalReportsQweb(models.AbstractModel):
             'docs': docs,
         }
         return self.env['report'].render(
-            'technical_reports.external_reports_qweb', docargs)
+            'technical_reports.technical_reports_external_qweb', docargs)
 
     def _timediff(self, toDate, fromDate):
         if toDate and fromDate:

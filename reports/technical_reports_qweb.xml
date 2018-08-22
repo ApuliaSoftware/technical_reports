@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <data>
-        <template id="technical_reports_qweb">
-            <t t-call="report.html_container">
-                <t t-foreach="docs" t-as="o">
+        <template id="technical_reports_qweb_document">
+            <!--<t t-call="report.html_container">-->
+                <!--<t t-foreach="docs" t-as="o">-->
                     <t t-call="report.external_layout">
+                        <t t-set="o" t-value="o.with_context({'lang':o.partner_id.lang})" />
                         <div class="page">
 
                             <p class="row">
@@ -43,7 +44,7 @@
                             </table><br/>
 
                             <div class="notes"><strong>NOTES</strong></div>
-                            <table class="table table-bordered">
+                            <table class="table table-bordered" name="notes">
                                 <t t-set="count" t-value="0"/>
                                 <thead>
                                     <tr style="background:grey; color:white;">
@@ -96,8 +97,17 @@
                             </div>
                         </div>
                     </t>
+                <!--</t>-->
+            <!--</t>-->
+        </template>
+
+        <template id="technical_reports_qweb">
+            <t t-call="report.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="technical_reports.technical_reports_qweb_document" t-lang="o.partner_id.lang"/>
                 </t>
             </t>
         </template>
+
     </data>
 </odoo>
