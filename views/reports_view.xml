@@ -62,7 +62,7 @@
                             <field name="name" colspan="2"/>
                             <field name="partner_id" colspan="2"/>
                             <field name="project_activity_id" colspan="2" domain="[('project_id', '=', project_id)]" position="replace"
-                                   attrs="{'invisible':[('project_id', '=', False)]}"/>
+                                   attrs="{'invisible':[('project_id', '=', False)]}" context="{'default_project_id' : project_id}"/>
                         </group>
                         <group>
                            <field name="project_id" domain="[('partner_id', '=', partner_id)]"
@@ -86,7 +86,7 @@
                             <field name="activity_description"/>
                         </page>
                          <page string="Notes">
-                             <field name="notes_ids" context="{'default_partner_id': partner_id}">
+                             <field name="notes_ids" context="{'default_partner_id': partner_id, 'default_report_id': id}">
                                  <tree>
                                      <field name="date_and_hour"/>
                                      <field name="notes"/>
@@ -106,8 +106,7 @@
                                          </group>
                                      </group>
                                      <group>
-                                         <field name="report_id" domain="[('partner_id', '=', partner_id)]"
-                                                options="{'no_create_edit':True}"/>
+                                         <field name="report_id" attrs="{'invisible':1}"/>
                                      </group>
                                  </form>
                              </field>

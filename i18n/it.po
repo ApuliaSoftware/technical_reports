@@ -321,7 +321,7 @@ msgstr "Attività del progetto"
 #. module: technical_reports
 #: model:ir.ui.view,arch_db:technical_reports.report_task_view
 msgid "Report tasks"
-msgstr "Attività del rapporto"
+msgstr "N° Rapporti"
 
 #. module: technical_reports
 #: model:ir.actions.act_window,name:technical_reports.action_notes

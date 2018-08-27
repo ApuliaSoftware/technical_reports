@@ -14,7 +14,9 @@
         'reports/technical_reports_qweb.xml',
         'reports/external_reports_qweb.xml',
         'reports/report.xml',
-        'data/ir_sequence_data.xml'
+        'data/ir_sequence_data.xml',
+        'views/partner_view.xml',
+        'views/project_view.xml'
     ],
     'installable': True
 }
