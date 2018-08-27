@@ -11,7 +11,7 @@ class Reports(models.Model):
 
     _rec_name = "display_name"
 
-    name = fields.Char(string='Technical report reference', required=True, 
+    name = fields.Char(string='Technical report reference', required=True,
                        copy=False, readonly=True, default=lambda self: _('New'))
     partner_id = fields.Many2one("res.partner", string="Partner", required=True)
     project_id = fields.Many2one("project.project", string="Project")
@@ -24,13 +24,13 @@ class Reports(models.Model):
     start_activity_date = fields.Datetime()
     end_activity_date = fields.Datetime()
     activity_description = fields.Html()
-    order_type = fields.Selection([('prepaid','Prepaid'),
-                                   ('consumptive','Consumptive')],
+    order_type = fields.Selection([('prepaid', 'Prepaid'),
+                                   ('consumptive', 'Consumptive')],
                                   string="Order type")
     debit = fields.Boolean()
     customer_note = fields.Text()
     digital_sign = fields.Binary()
-    display_name = fields.Char(compute = '_display_name')
+    display_name = fields.Char(compute='_display_name')
     notes_ids = fields.One2many("report.notes", "report_id", string="Notes")
 
     @api.multi
