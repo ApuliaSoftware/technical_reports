@@ -86,16 +86,14 @@
                             <field name="activity_description"/>
                         </page>
                          <page string="Notes">
-                             <field name="notes_ids">
+                             <field name="notes_ids" context="{'default_partner_id': partner_id}">
                                  <tree>
                                      <field name="date_and_hour"/>
                                      <field name="notes"/>
                                      <field name="worked"/>
                                  </tree>
                                  <form>
-                                     <group>
-                                         <field name="partner_id"/>
-                                     </group>
+                                     <field name="partner_id" attrs="{'invisible':1}"/>
                                      <group>
                                          <field name="notes"/>
                                      </group>
