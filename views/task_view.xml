@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <record id="act_technical_reports" model="ir.actions.act_window">
+        <record id="act_technical_reports_task" model="ir.actions.act_window">
             <field name="name">Technical reports</field>
             <field name="res_model">report.reports</field>
             <field name="view_mode">tree,form</field>
@@ -19,7 +19,7 @@
             <field name="inherit_id" ref="project.view_task_form2"/>
             <field name="arch" type="xml">
                 <xpath expr="//button" position="before">
-                    <button name="%(act_technical_reports)d" type="action" string="Report tasks" widget="statinfo"
+                    <button name="%(act_technical_reports_task)d" type="action" string="Report tasks" widget="statinfo"
                             class="oe_stat_button" icon="fa-list">
                         <field name="technical_reports_count" widget="statinfo" nolabel="1"/>
                     </button>
