@@ -5,7 +5,8 @@
     'version': '10.0.1.2.0',
     'description': "Technical reports",
     'category': 'Reports',
-    'website': 'https://apuliasoftware.it',
+    'author': 'Apulia Software s.r.l.',
+    'website': 'http://www.apuliasoftware.it',
     'depends': ['base', 'project', 'web_digital_sign', 'report'],
     'data': [
         'views/reports_view.xml',
