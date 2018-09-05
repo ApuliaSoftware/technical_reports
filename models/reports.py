@@ -11,7 +11,7 @@ class Reports(models.Model):
 
     _rec_name = "display_name"
 
-    name = fields.Char(string='Technical report reference', required=True,
+    name = fields.Char(string='Number', required=True,
                        copy=False, readonly=True, default=lambda self: _('New'))
     partner_id = fields.Many2one("res.partner", string="Partner", required=True)
     project_id = fields.Many2one("project.project", string="Project")

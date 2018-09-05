@@ -28,21 +28,29 @@
                             <div class="row">
                                 <div class="col-xs-4"><strong>Start journey: </strong><span t-field="o.start_journey_date"/></div>
                                 <div class="col-xs-4"><strong>End journey: </strong><span t-field="o.end_journey_date"/></div>
-                                <t t-set="journey" t-value="timediff(o.end_journey_date, o.start_journey_date)"/>
-                                <div class="col-xs-4"><strong>Time journey: </strong>
-                                    <span t-esc="journey.days"/> days
-                                    <span t-esc="journey.seconds/3600"/>:<span t-esc="journey.seconds/60"/>:<span t-esc="journey.seconds"/>
-                                </div>
+                                <t t-if="o.end_journey_date">
+                                    <t t-if="o.start_journey_date">
+                                        <t t-set="journey" t-value="timediff(o.end_journey_date, o.start_journey_date)"/>
+                                        <div class="col-xs-4"><strong>Time journey: </strong>
+                                            <span t-esc="journey.days"/> days
+                                            <span t-esc="journey.seconds/3600"/>:<span t-esc="journey.seconds/60"/>:<span t-esc="journey.seconds"/>
+                                        </div>
+                                    </t>
+                                </t>
                             </div>
 
                             <div class="row">
                                 <div class="col-xs-4"><strong>Start activity: </strong><span t-field="o.start_activity_date"/></div>
                                 <div class="col-xs-4"><strong>End activity: </strong><span t-field="o.end_activity_date"/></div>
-                                <t t-set="activity" t-value="timediff(o.end_activity_date, o.start_activity_date)"/>
-                                <div class="col-xs-4"><strong>Time activity: </strong>
-                                    <span t-esc="activity.days"/> days
-                                    <span t-esc="activity.seconds/3600"/>:<span t-esc="activity.seconds/60"/>:<span t-esc="activity.seconds"/>
-                                </div>
+                                <t t-if="o.end_activity_date">
+                                    <t t-if="o.start_activity_date">
+                                        <t t-set="activity" t-value="timediff(o.end_activity_date, o.start_activity_date)"/>
+                                        <div class="col-xs-4"><strong>Time activity: </strong>
+                                            <span t-esc="activity.days"/> days
+                                            <span t-esc="activity.seconds/3600"/>:<span t-esc="activity.seconds/60"/>:<span t-esc="activity.seconds"/>
+                                        </div>
+                                    </t>
+                                </t>
                             </div><br/><br/><br/>
 
                             <strong>ACTIVITY</strong>
