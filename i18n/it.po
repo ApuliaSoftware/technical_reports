@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-05 10:31+0000\n"
-"PO-Revision-Date: 2018-09-05 10:31+0000\n"
+"POT-Creation-Date: 2018-09-06 10:37+0000\n"
+"PO-Revision-Date: 2018-09-06 10:37+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -159,13 +159,6 @@ msgid "Date and hour"
 msgstr "Data e Ora"
 
 #. module: technical_reports
-#: model:ir.model.fields,field_description:technical_reports.field_report_reports_debit
-#: model:ir.ui.view,arch_db:technical_reports.reports_filter
-#: model:ir.ui.view,arch_db:technical_reports.view_reports_form
-msgid "Debit"
-msgstr "Addebitato"
-
-#. module: technical_reports
 #: model:ir.ui.view,arch_db:technical_reports.technical_reports_qweb_document
 msgid "Description"
 msgstr "Descrizione"
@@ -262,8 +255,8 @@ msgstr "No"
 
 #. module: technical_reports
 #: model:ir.ui.view,arch_db:technical_reports.reports_filter
-msgid "Not debit"
-msgstr "Non addebitato"
+msgid "Not to invoice"
+msgstr "Non da fatturare"
 
 #. module: technical_reports
 #: model:ir.ui.view,arch_db:technical_reports.technical_reports_qweb_document
@@ -331,7 +324,7 @@ msgstr "N° Rapporti"
 #: model:ir.actions.act_window,name:technical_reports.action_notes
 #: model:ir.actions.act_window,name:technical_reports.action_reports
 msgid "Reports"
-msgstr "Rapporti"
+msgstr "Report"
 
 #. module: technical_reports
 #: model:ir.ui.view,arch_db:technical_reports.technical_reports_qweb_document
@@ -380,6 +373,13 @@ msgid "Technical reports"
 msgstr "Rapporti tecnici"
 
 #. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_report_reports_to_invoice
+#: model:ir.ui.view,arch_db:technical_reports.reports_filter
+#: model:ir.ui.view,arch_db:technical_reports.view_reports_form
+msgid "To invoice"
+msgstr "Da fatturare"
+
+#. module: technical_reports
 #: model:ir.ui.view,arch_db:technical_reports.technical_reports_qweb_document
 msgid "Trainer User"
 msgstr "Utente formatore"
@@ -416,11 +416,6 @@ msgid "report.reports"
 msgstr "report.reports"
 
 #. module: technical_reports
-#: model:ir.model,name:technical_reports.model_report_technical_reports_external_reports_qweb
-msgid "report.technical_reports.external_reports_qweb"
-msgstr "report.technical_reports.external_reports_qweb"
-
-#. module: technical_reports
 #: model:ir.model,name:technical_reports.model_report_technical_reports_technical_reports_external_qweb
 msgid "report.technical_reports.technical_reports_external_qweb"
 msgstr "report.technical_reports.technical_reports_external_qweb"
@@ -429,16 +424,6 @@ msgstr "report.technical_reports.technical_reports_external_qweb"
 #: model:ir.model,name:technical_reports.model_report_technical_reports_technical_reports_qweb
 msgid "report.technical_reports.technical_reports_qweb"
 msgstr "report.technical_reports.technical_reports_qweb"
-
-#. module: technical_reports
-#: model:ir.model,name:technical_reports.model_report_aa_notes
-msgid "report_aa.notes"
-msgstr "report_aa.notes"
-
-#. module: technical_reports
-#: model:ir.model,name:technical_reports.model_report_aa_reports
-msgid "report_aa.reports"
-msgstr "report_aa.reports"
 
 #. module: technical_reports
 #: model:ir.ui.view,arch_db:technical_reports.notes_filter

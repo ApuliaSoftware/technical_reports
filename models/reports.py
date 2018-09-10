@@ -26,12 +26,19 @@ class Reports(models.Model):
     activity_description = fields.Html()
     order_type = fields.Selection([('prepaid', 'Prepaid'),
                                    ('consumptive', 'Consumptive')],
-                                  string="Order type")
-    debit = fields.Boolean()
+                                  string="Order type", required=True)
+    to_invoice = fields.Boolean()
     customer_note = fields.Text()
     digital_sign = fields.Binary()
     display_name = fields.Char(compute='_display_name')
     notes_ids = fields.One2many("report.notes", "report_id", string="Notes")
+    state = fields.Selection([
+        ('draft', 'Draft'),
+        ('to invoice', 'To invoice'),
+        ('done', 'Done')],
+        string="state", default="draft")
+    invoice_id = fields.Many2one ("account.invoice", string="Invoice", readonly=True)
+    intervention_place = fields.Many2one("res.partner", string="Partner")
 
     @api.multi
     def _display_name(self):
@@ -55,3 +62,22 @@ class Reports(models.Model):
                 'technical.reports') or _('New')
         result = super(Reports, self).create(vals)
         return result
+
+    @api.multi
+    def action_done(self):
+        for o in self:
+            o.state = 'done'
+
+    @api.multi
+    def action_to_confirm(self):
+        for o in self:
+            if o.to_invoice == False and o.order_type == 'prepaid':
+                o.state = 'done'
+            else:
+                o.state = 'to invoice'
+
+
+    @api.multi
+    def action_draft(self):
+        for o in self:
+            o.state = 'draft'
