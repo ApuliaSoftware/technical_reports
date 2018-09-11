@@ -39,6 +39,7 @@ class Reports(models.Model):
         string="state", default="draft")
     invoice_id = fields.Many2one ("account.invoice", string="Invoice", readonly=True)
     intervention_place = fields.Many2one("res.partner", string="Partner")
+    city = fields.Char(related="intervention_place.city", string="City", store=True, readonly=True)
 
     @api.multi
     def _display_name(self):

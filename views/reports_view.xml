@@ -59,24 +59,59 @@
                 <form>
                      <header>
                          <button name="action_to_confirm" states="draft" string="Confirm"  type="object" />
-                         <button name="action_draft" state="draft" string="Cancel" type="object" attrs="{'invisible': [('state', '=', 'draft')]}"/>
+                         <button name="action_draft" state="draft" string="Cancel" type="object"
+                                 attrs="{'invisible': [('state', '=', 'draft')]}"/>
                          <button name="action_done" states="to invoice" string="Create invoice" type="object"/>
                          <field name="state" widget="statusbar"/>
                     </header>
                     <group>
                         <group>
-                            <field name="name" colspan="2"/>
-                            <field name="partner_id" colspan="2" domain="[('parent_id', '=', False)]" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
-                            <field name="intervention_place"  string="Intervention place" colspan="2" domain="[('parent_id', '!=', False)]"/>
-                            <field name="project_activity_id" colspan="2" domain="[('project_id', '=', project_id)]" position="replace"
-                                   attrs="{'invisible':[('project_id', '=', False)], 'readonly': [('state', '!=', 'draft')]}" context="{'default_project_id' : project_id}"/>
+                            <field name="name"/>
+                            <field name="partner_id" domain="[('parent_id', '=', False)]" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
                         </group>
                         <group>
                             <field name="project_id" domain="[('partner_id', '=', partner_id)]"
                                   options="{'no_create_edit':True}" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
-                            <field name="order_type" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
-                            <field name="to_invoice" string="To invoice" attrs="{'invisible':['|', ('order_type', '=', 'consumptive'), ('order_type', '=', False)], 'readonly': [('state', '!=', 'draft')]}"/>
-                            <field name="invoice_id" states="done"/>
+                            <field name="project_activity_id" domain="[('project_id', '=', project_id)]" position="replace"
+                                   attrs="{'invisible':[('project_id', '=', False)], 'readonly': [('state', '!=', 'draft')]}"
+                                   context="{'default_project_id' : project_id}"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group>
+                            <div class="row">
+                                <div class="col-sm-7">
+                                    <label style="font-weight:bold" string="Intervention place"/>
+                                    <span style="color:silver">   |    </span>
+                                    <field name="intervention_place" string="Intervention place" domain="[('parent_id', '=', partner_id)]"
+                                           attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                </div>
+                                <div class = "col-sm-3">
+                                    <label style="font-weight:bold" string="City" attrs="{'invisible':[('intervention_place', '=', False)]}"/>
+                                    <span style="color:silver">   |    </span>
+                                    <field name="city" string="City"/>
+                                </div>
+                            </div>
+                        </group>
+                        <group>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <label style="font-weight:bold" string="Order type"/><span style="color:silver">   |    </span>
+                                    <field name="order_type" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                </div>
+                                <div class="col-sm-4">
+                                    <label style="font-weight:bold" string="To invoice"
+                                           attrs="{'invisible':['|', ('order_type', '=', 'consumptive'), ('order_type', '=', False)]}"/>
+                                    <span style="color:silver">   |    </span>
+                                    <field name="to_invoice" string="To invoice"
+                                           attrs="{'invisible':['|', ('order_type', '=', 'consumptive'), ('order_type', '=', False)], 'readonly': [('state', '!=', 'draft')]}"/>
+                                </div>
+                                <div class="col-sm-4">
+                                    <label style="font-weight:bold" string="Invoice" states="done"/>
+                                    <span style="color:silver">   |    </span>
+                                    <field name="invoice_id" states="done"/>
+                                </div>
+                            </div>
                         </group>
                     </group>
                     <group>
@@ -94,7 +129,8 @@
                             <field name="activity_description"/>
                         </page>
                          <page string="Notes">
-                             <field name="notes_ids" context="{'default_partner_id': partner_id, 'default_report_id': id}" attrs="{'readonly': [('state', '!=', 'draft')]}">
+                             <field name="notes_ids" context="{'default_partner_id': partner_id, 'default_report_id': id}"
+                                    attrs="{'readonly': [('state', '!=', 'draft')]}">
                                  <tree>
                                      <field name="date_and_hour"/>
                                      <field name="notes"/>
