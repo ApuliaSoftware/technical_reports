@@ -93,15 +93,21 @@ class Reports(models.Model):
                   'start_activity_date', 'end_activity_date')
     def check_date(self):
         for date in self:
-            if  (date.start_activity_date > date.end_activity_date) and date.end_activity_date:
+            if  (
+                    date.start_activity_date > date.end_activity_date
+            ) and date.end_activity_date:
                 raise UserError(
                     (
-                        'Error! Activity starting date must be lower than its ending date.'
+                        'Error'
+                        '!'
+                        'Activity starting date must be lower than its ending date.'
                     ))
-            elif  (date.start_journey_date > date.end_journey_date) and date.end_journey_date:
+            elif  (
+                    date.start_journey_date > date.end_journey_date
+            ) and date.end_journey_date:
                 raise UserError(
                     _(
-                        'Error '
+                        'Error'
                         '! '
                         'Journey starting date must be lower than its ending date.'
                     ))
