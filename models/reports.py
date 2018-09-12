@@ -3,6 +3,7 @@
 
 from odoo import fields, models, api, _
 from datetime import datetime
+from openerp.exceptions import  UserError
 
 
 class Reports(models.Model):
@@ -87,4 +88,23 @@ class Reports(models.Model):
         self.project_id = False
         self.intervention_place = False
         self.project_activity_id = False
+
+    @api.onchange('start_journey_date','end_journey_date',
+                  'start_activity_date', 'end_activity_date')
+    def check_date(self):
+        for date in self:
+            if  (date.start_activity_date > date.end_activity_date) and date.end_activity_date:
+                raise UserError(
+                    (
+                        'Error! Activity starting date must be lower than its ending date.'
+                    ))
+            elif  (date.start_journey_date > date.end_journey_date) and date.end_journey_date:
+                raise UserError(
+                    _(
+                        'Error '
+                        '! '
+                        'Journey starting date must be lower than its ending date.'
+                    ))
+
+
 

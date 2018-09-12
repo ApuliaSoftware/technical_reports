@@ -27,7 +27,6 @@ class TechnicalReportsQweb(models.AbstractModel):
             date1 = datetime.strptime(toDate, '%Y-%m-%d %H:%M:%S')
             date2 = datetime.strptime(fromDate, '%Y-%m-%d %H:%M:%S')
             result = date1 - date2
-            # result1 = datetime.strftime(result, '%H:%M:%S')
             return result
 
 
