@@ -11,7 +11,7 @@ class TechnicalReportsQweb(models.AbstractModel):
 
     @api.multi
     def render_html(self, docids, data=None):
-        print self.env.context, docids
+        print (self.env.context, docids)
 
         docs = self.env['report.reports'].browse(docids)
 
@@ -35,7 +35,7 @@ class ExternalReportsQweb(models.AbstractModel):
 
     @api.multi
     def render_html(self, docids, data=None):
-        print self.env.context, docids
+        print (self.env.context, docids)
 
         docs = self.env['report.reports'].browse(docids)
 

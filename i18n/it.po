@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-06 10:37+0000\n"
-"PO-Revision-Date: 2018-09-06 10:37+0000\n"
+"POT-Creation-Date: 2018-09-12 09:30+0000\n"
+"PO-Revision-Date: 2018-09-12 09:30+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -56,6 +56,11 @@ msgstr "<strong>Attività: </strong>"
 
 #. module: technical_reports
 #: model:ir.ui.view,arch_db:technical_reports.technical_reports_qweb_document
+msgid "<strong>City: </strong>"
+msgstr "<strong>Città: </strong>"
+
+#. module: technical_reports
+#: model:ir.ui.view,arch_db:technical_reports.technical_reports_qweb_document
 msgid "<strong>End activity: </strong>"
 msgstr "<strong>Fine attività: </strong>"
 
@@ -63,6 +68,11 @@ msgstr "<strong>Fine attività: </strong>"
 #: model:ir.ui.view,arch_db:technical_reports.technical_reports_qweb_document
 msgid "<strong>End journey: </strong>"
 msgstr "<strong>Fine viaggio: </strong>"
+
+#. module: technical_reports
+#: model:ir.ui.view,arch_db:technical_reports.technical_reports_qweb_document
+msgid "<strong>Intervention place: </strong>"
+msgstr "<strong>Luogo dell'intervento: </strong>"
 
 #. module: technical_reports
 #: model:ir.ui.view,arch_db:technical_reports.technical_reports_qweb_document
@@ -121,14 +131,35 @@ msgid "Activity description"
 msgstr "Descrizione attività"
 
 #. module: technical_reports
+#: model:ir.ui.view,arch_db:technical_reports.view_reports_form
+msgid "Cancel"
+msgstr "Annulla"
+
+#. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_report_reports_city
+#: model:ir.ui.view,arch_db:technical_reports.view_reports_form
+msgid "City"
+msgstr "Città"
+
+#. module: technical_reports
 #: model:ir.ui.view,arch_db:technical_reports.reports_filter
 msgid "Comsumptive"
 msgstr "Consuntivo"
 
 #. module: technical_reports
+#: model:ir.ui.view,arch_db:technical_reports.view_reports_form
+msgid "Confirm"
+msgstr "Conferma"
+
+#. module: technical_reports
 #: selection:report.reports,order_type:0
 msgid "Consumptive"
 msgstr "Consuntivo"
+
+#. module: technical_reports
+#: model:ir.ui.view,arch_db:technical_reports.view_reports_form
+msgid "Create invoice"
+msgstr "Crea fattura"
 
 #. module: technical_reports
 #: model:ir.model.fields,field_description:technical_reports.field_report_notes_create_uid
@@ -177,6 +208,16 @@ msgid "Display Name"
 msgstr "Nome Visualizzato"
 
 #. module: technical_reports
+#: selection:report.reports,state:0
+msgid "Done"
+msgstr "Fatto"
+
+#. module: technical_reports
+#: selection:report.reports,state:0
+msgid "Draft"
+msgstr "Bozza"
+
+#. module: technical_reports
 #: model:ir.model.fields,field_description:technical_reports.field_report_reports_end_activity_date
 msgid "End activity date"
 msgstr "Data fine attività"
@@ -221,6 +262,17 @@ msgid "Internal report"
 msgstr "Rapporto interno"
 
 #. module: technical_reports
+#: model:ir.ui.view,arch_db:technical_reports.view_reports_form
+msgid "Intervention place"
+msgstr "Luogo dell'intervento"
+
+#. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_report_reports_invoice_id
+#: model:ir.ui.view,arch_db:technical_reports.view_reports_form
+msgid "Invoice"
+msgstr "Fattura"
+
+#. module: technical_reports
 #: model:ir.model.fields,field_description:technical_reports.field_report_notes___last_update
 #: model:ir.model.fields,field_description:technical_reports.field_report_reports___last_update
 #: model:ir.model.fields,field_description:technical_reports.field_report_technical_reports_technical_reports_external_qweb___last_update
@@ -242,8 +294,8 @@ msgstr "Ultima modifica il"
 
 #. module: technical_reports
 #: code:addons/technical_reports/models/reports.py:15
-#: code:addons/technical_reports/models/reports.py:53
-#: code:addons/technical_reports/models/reports.py:55
+#: code:addons/technical_reports/models/reports.py:61
+#: code:addons/technical_reports/models/reports.py:63
 #, python-format
 msgid "New"
 msgstr "Nuovo"
@@ -278,6 +330,7 @@ msgstr "Numero"
 
 #. module: technical_reports
 #: model:ir.model.fields,field_description:technical_reports.field_report_reports_order_type
+#: model:ir.ui.view,arch_db:technical_reports.view_reports_form
 msgid "Order type"
 msgstr "Tipo ordine"
 
@@ -289,6 +342,7 @@ msgstr "Descrizione dei clienti partecipanti"
 #. module: technical_reports
 #: model:ir.model,name:technical_reports.model_res_partner
 #: model:ir.model.fields,field_description:technical_reports.field_report_notes_partner_id
+#: model:ir.model.fields,field_description:technical_reports.field_report_reports_intervention_place
 #: model:ir.model.fields,field_description:technical_reports.field_report_reports_partner_id
 #: model:ir.ui.view,arch_db:technical_reports.notes_filter
 #: model:ir.ui.view,arch_db:technical_reports.reports_filter
@@ -342,11 +396,6 @@ msgid "Start journey date"
 msgstr "Data di inizio viaggio"
 
 #. module: technical_reports
-#: model:ir.ui.view,arch_db:technical_reports.technical_reports_qweb_document
-msgid "TOTAL NOTES:"
-msgstr "N° APPUNTI:"
-
-#. module: technical_reports
 #: model:ir.model,name:technical_reports.model_project_task
 msgid "Task"
 msgstr "Attività"
@@ -376,6 +425,7 @@ msgstr "Rapporti tecnici"
 #: model:ir.model.fields,field_description:technical_reports.field_report_reports_to_invoice
 #: model:ir.ui.view,arch_db:technical_reports.reports_filter
 #: model:ir.ui.view,arch_db:technical_reports.view_reports_form
+#: selection:report.reports,state:0
 msgid "To invoice"
 msgstr "Da fatturare"
 
@@ -434,4 +484,9 @@ msgstr "Ricerca appunti"
 #: model:ir.ui.view,arch_db:technical_reports.reports_filter
 msgid "search reports"
 msgstr "Ricerca rapporti"
+
+#. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_report_reports_state
+msgid "state"
+msgstr "state"
 
