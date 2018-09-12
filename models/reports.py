@@ -77,8 +77,14 @@ class Reports(models.Model):
             else:
                 o.state = 'to invoice'
 
-
     @api.multi
     def action_draft(self):
         for o in self:
             o.state = 'draft'
+
+    @api.onchange("partner_id")
+    def change_partner(self):
+        self.project_id = False
+        self.intervention_place = False
+        self.project_activity_id = False
+

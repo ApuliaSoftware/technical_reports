@@ -4,7 +4,6 @@
     <template id="technical_reports_external_qweb_document" inherit_id="technical_reports.technical_reports_qweb_document" primary="True">
         <xpath expr="//div[@class='notes']" position="replace"></xpath>
         <xpath expr="//table[@name='notes']" position="replace"></xpath>
-        <xpath expr="//div[@class='total_notes']" position="replace"></xpath>
     </template>
 
     <template id="technical_reports_external_qweb">

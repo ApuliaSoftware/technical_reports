@@ -71,7 +71,7 @@
                         </group>
                         <group>
                             <field name="project_id" domain="[('partner_id', '=', partner_id)]"
-                                  options="{'no_create_edit':True}" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                  options="{'no_create_edit':True}" attrs="{'readonly': ['|', ('state', '!=', 'draft'), ('partner_id', '=', False)]}"/>
                             <field name="project_activity_id" domain="[('project_id', '=', project_id)]" position="replace"
                                    attrs="{'invisible':[('project_id', '=', False)], 'readonly': [('state', '!=', 'draft')]}"
                                    context="{'default_project_id' : project_id}"/>
@@ -84,10 +84,10 @@
                                     <label style="font-weight:bold" string="Intervention place"/>
                                     <span style="color:silver">   |    </span>
                                     <field name="intervention_place" string="Intervention place" domain="[('parent_id', '=', partner_id)]"
-                                           attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                           attrs="{'readonly': ['|', ('state', '!=', 'draft'), ('partner_id', '=', False)]}"/>
                                 </div>
-                                <div class = "col-sm-3">
-                                    <label style="font-weight:bold" string="City" attrs="{'invisible':[('intervention_place', '=', False)]}"/>
+                                <div class = "col-sm-3" attrs="{'invisible':[('intervention_place', '=', False)]}">
+                                    <label style="font-weight:bold" string="City"/>
                                     <span style="color:silver">   |    </span>
                                     <field name="city" string="City"/>
                                 </div>
@@ -96,20 +96,20 @@
                         <group>
                             <div class="row">
                                 <div class="col-sm-4">
-                                    <label style="font-weight:bold" string="Order type"/><span style="color:silver">   |    </span>
+                                    <label style="font-weight:bold" string="Order type"/>
+                                    <span style="color:silver">   |    </span>
                                     <field name="order_type" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
                                 </div>
-                                <div class="col-sm-4">
-                                    <label style="font-weight:bold" string="To invoice"
-                                           attrs="{'invisible':['|', ('order_type', '=', 'consumptive'), ('order_type', '=', False)]}"/>
+                                <div class="col-sm-4" attrs="{'invisible':['|', ('order_type', '=', 'consumptive'), ('order_type', '=', False)]}">
+                                    <label style="font-weight:bold" string="To invoice"/>
                                     <span style="color:silver">   |    </span>
                                     <field name="to_invoice" string="To invoice"
-                                           attrs="{'invisible':['|', ('order_type', '=', 'consumptive'), ('order_type', '=', False)], 'readonly': [('state', '!=', 'draft')]}"/>
+                                           attrs="{'readonly': [('state', '!=', 'draft')]}"/>
                                 </div>
-                                <div class="col-sm-4">
-                                    <label style="font-weight:bold" string="Invoice" states="done"/>
+                                <div class="col-sm-4" states="done">
+                                    <label style="font-weight:bold" string="Invoice"/>
                                     <span style="color:silver">   |    </span>
-                                    <field name="invoice_id" states="done"/>
+                                    <field name="invoice_id"/>
                                 </div>
                             </div>
                         </group>
