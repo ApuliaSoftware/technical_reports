@@ -91,27 +91,16 @@ class Reports(models.Model):
         self.intervention_place = False
         self.project_activity_id = False
 
-    @api.onchange('start_journey_date', 'end_journey_date',
+
+    @api.multi
+    @api.constrains('start_journey_date', 'end_journey_date',
                   'start_activity_date', 'end_activity_date')
     def check_date(self):
-        for date in self:
-            if(date.start_activity_date > date.end_activity_date) \
-                    and date.end_activity_date:
-                raise UserError(
-                    _(
-                        'Error'
-                        '! '
-                        'Activity starting date must be lower than its ending date.'
-                    ))
-            elif(date.start_journey_date > date.end_journey_date) and date.end_journey_date:
-                raise UserError(
-                    _(
-                        'Error'
-                        '! '
-                        'Journey starting date must be lower than its ending date.'
-                    ))
+        for report in self:
+            if not (report.start_journey_date and report.start_activity_date):
+                continue
 
-            elif date.start_activity_date < date.start_journey_date:
+            if (report.start_activity_date < report.start_journey_date):
                 raise UserError(
                     _(
                         'Error'
@@ -119,10 +108,37 @@ class Reports(models.Model):
                         'Activity starting date must be bigger than journey starting date.'
                     ))
 
-            elif date.end_activity_date > date.end_journey_date:
+            if not (report.start_activity_date and report.end_activity_date):
+                continue
+
+            if(report.start_activity_date > report.end_activity_date):
+                raise UserError(
+                    _(
+                        'Error'
+                        '! '
+                        'Activity starting date must be lower than its ending date.'
+                    ))
+
+            if not (report.end_activity_date and report.end_journey_date):
+                continue
+
+            if (report.end_activity_date > report.end_journey_date):
                 raise UserError(
                     _(
                         'Error'
                         '! '
                         'Activity ending date must be lower than journey ending date.'
                     ))
+
+            if not (report.start_journey_date and report.end_journey_date):
+                continue
+
+            if(report.start_journey_date > report.end_journey_date):
+                raise UserError(
+                    _(
+                        'Error'
+                        '! '
+                        'Journey starting date must be lower than its ending date.'
+                    ))
+
+
