@@ -3,7 +3,7 @@
 
 from odoo import fields, models, api, _
 from datetime import datetime
-from openerp.exceptions import  UserError
+from openerp.exceptions import UserError
 
 
 class Reports(models.Model):
@@ -38,9 +38,11 @@ class Reports(models.Model):
         ('to invoice', 'To invoice'),
         ('done', 'Done')],
         string="state", default="draft")
-    invoice_id = fields.Many2one ("account.invoice", string="Invoice", readonly=True)
+    invoice_id = fields.Many2one ("account.invoice", string="Invoice",
+                                  readonly=True)
     intervention_place = fields.Many2one("res.partner", string="Partner")
-    city = fields.Char(related="intervention_place.city", string="City", store=True, readonly=True)
+    city = fields.Char(related="intervention_place.city", string="City",
+                       store=True, readonly=True)
 
     @api.multi
     def _display_name(self):
@@ -89,22 +91,19 @@ class Reports(models.Model):
         self.intervention_place = False
         self.project_activity_id = False
 
-    @api.onchange('start_journey_date','end_journey_date',
+    @api.onchange('start_journey_date', 'end_journey_date',
                   'start_activity_date', 'end_activity_date')
     def check_date(self):
         for date in self:
-            if  (
-                    date.start_activity_date > date.end_activity_date
-            ) and date.end_activity_date:
+            if(date.start_activity_date > date.end_activity_date) \
+                    and date.end_activity_date:
                 raise UserError(
-                    (
+                    _(
                         'Error'
-                        '!'
+                        '! '
                         'Activity starting date must be lower than its ending date.'
                     ))
-            elif  (
-                    date.start_journey_date > date.end_journey_date
-            ) and date.end_journey_date:
+            elif(date.start_journey_date > date.end_journey_date) and date.end_journey_date:
                 raise UserError(
                     _(
                         'Error'
@@ -112,5 +111,18 @@ class Reports(models.Model):
                         'Journey starting date must be lower than its ending date.'
                     ))
 
+            elif date.start_activity_date < date.start_journey_date:
+                raise UserError(
+                    _(
+                        'Error'
+                        '! '
+                        'Activity starting date must be bigger than journey starting date.'
+                    ))
 
-
+            elif date.end_activity_date > date.end_journey_date:
+                raise UserError(
+                    _(
+                        'Error'
+                        '! '
+                        'Activity ending date must be lower than journey ending date.'
+                    ))
