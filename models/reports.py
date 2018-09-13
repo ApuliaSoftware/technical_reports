@@ -105,7 +105,8 @@ class Reports(models.Model):
                     _(
                         'Error'
                         '! '
-                        'Activity starting date must be bigger than journey starting date.'
+                        'Activity starting date must be bigger '
+                        'than journey starting date.'
                     ))
 
             if not (report.start_activity_date and report.end_activity_date):
@@ -116,7 +117,8 @@ class Reports(models.Model):
                     _(
                         'Error'
                         '! '
-                        'Activity starting date must be lower than its ending date.'
+                        'Activity starting date must be lower'
+                        ' than its ending date.'
                     ))
 
             if not (report.end_activity_date and report.end_journey_date):
@@ -127,7 +129,8 @@ class Reports(models.Model):
                     _(
                         'Error'
                         '! '
-                        'Activity ending date must be lower than journey ending date.'
+                        'Activity ending date must be lower'
+                        ' than journey ending date.'
                     ))
 
             if not (report.start_journey_date and report.end_journey_date):
@@ -138,7 +141,8 @@ class Reports(models.Model):
                     _(
                         'Error'
                         '! '
-                        'Journey starting date must be lower than its ending date.'
+                        'Journey starting date must be lower '
+                        'than its ending date.'
                     ))
 
 
