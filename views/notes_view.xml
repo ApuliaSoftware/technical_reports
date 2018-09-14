@@ -3,7 +3,7 @@
     <data>
         <record id="notes_filter" model="ir.ui.view">
             <field name="name">notes.filter</field>
-            <field name="model">report.notes</field>
+            <field name="model">technical.report.notes</field>
             <field name="arch" type="xml">
                 <search string="search notes">
                     <field name="partner_id"/>
@@ -18,7 +18,7 @@
 
         <record id="view_notes_tree" model="ir.ui.view">
             <field name="name">view_notes_tree.tree</field>
-            <field name="model">report.notes</field>
+            <field name="model">technical.report.notes</field>
             <field name="type">tree</field>
             <field name="arch" type="xml">
                 <tree>
@@ -31,7 +31,7 @@
 
         <record id="view_notes_form" model="ir.ui.view">
             <field name="name">view_notes_form.form</field>
-            <field name="model">report.notes</field>
+            <field name="model">technical.report.notes</field>
             <field name="type">form</field>
             <field name="arch" type="xml">
                 <form>
@@ -59,7 +59,7 @@
 
         <record id="action_notes" model="ir.actions.act_window">
             <field name="name">Reports</field>
-            <field name="res_model">report.notes</field>
+            <field name="res_model">technical.report.notes</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
         </record>

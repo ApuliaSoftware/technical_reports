@@ -479,8 +479,8 @@ msgstr "Giorno/i"
 
 #. module: technical_reports
 #: model:ir.model,name:technical_reports.model_report_notes
-msgid "report.notes"
-msgstr "report.notes"
+msgid "technical.report.notes"
+msgstr "technical.report.notes"
 
 #. module: technical_reports
 #: model:ir.model,name:technical_reports.model_report_reports

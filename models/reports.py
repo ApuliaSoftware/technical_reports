@@ -32,7 +32,7 @@ class TechnicalReport(models.Model):
     customer_note = fields.Text()
     #digital_sign = fields.Binary()
     display_name = fields.Char(compute='_display_name')
-    notes_ids = fields.One2many("report.notes", "report_id", string="Notes")
+    notes_ids = fields.One2many("technical.report.notes", "report_id", string="Notes")
     state = fields.Selection([
         ('draft', 'Draft'),
         ('to invoice', 'To invoice'),

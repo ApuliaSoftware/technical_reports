@@ -3,9 +3,9 @@
 
 from odoo import fields, models, api
 
-class Notes(models.Model):
+class TechnicalReportNotes(models.Model):
 
-    _name = 'report.notes'
+    _name = 'technical.report.notes'
 
     _rec_name = "display_name"
 
