@@ -9,6 +9,7 @@
     'website': 'http://www.apuliasoftware.it',
     'depends': ['base', 'project', 'report'],
     'data': [
+        'security/ir.model.access.csv',
         'views/reports_view.xml',
         'views/notes_view.xml',
         'views/task_view.xml',
