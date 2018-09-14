@@ -106,10 +106,10 @@
                     <br/>
                     <br/>
 
-                    <div style="text-align:right;"><strong>SIGNATURE:</strong>
+                    <div style="text-align:right;height:45px"><strong>SIGNATURE:</strong>
                         <div class="col-xs-12">
-                            <img t-if="o.digital_sign" t-att-src="'data:image/png;base64,%s' % o.digital_sign"
-                                 style="max-height:45px;"/>
+                            <!--img t-if="o.digital_sign" t-att-src="'data:image/png;base64,%s' % o.digital_sign"
+                                 style="max-height:45px;"/-->
                         </div>
                     </div>
                 </div>

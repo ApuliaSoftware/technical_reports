@@ -30,7 +30,7 @@ class Reports(models.Model):
                                   string="Order type", required=True)
     to_invoice = fields.Boolean()
     customer_note = fields.Text()
-    digital_sign = fields.Binary()
+    #digital_sign = fields.Binary()
     display_name = fields.Char(compute='_display_name')
     notes_ids = fields.One2many("report.notes", "report_id", string="Notes")
     state = fields.Selection([

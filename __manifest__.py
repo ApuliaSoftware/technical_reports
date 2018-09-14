@@ -7,7 +7,7 @@
     'category': 'Reports',
     'author': 'Apulia Software s.r.l.',
     'website': 'http://www.apuliasoftware.it',
-    'depends': ['base', 'project', 'web_digital_sign', 'report'],
+    'depends': ['base', 'project', 'report'],
     'data': [
         'views/reports_view.xml',
         'views/notes_view.xml',

@@ -171,9 +171,9 @@
                     </notebook>
                     <group>
                     </group>
-                    <group>
+                    <!--group>
                         <field name="digital_sign" widget="signature" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
-                    </group>
+                    </group-->
                 </form>
             </field>
         </record>
