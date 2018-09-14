@@ -3,7 +3,7 @@
     <data>
         <record id="reports_filter" model="ir.ui.view">
             <field name="name">reports.filter</field>
-            <field name="model">report.reports</field>
+            <field name="model">technical.report</field>
             <field name="arch" type="xml">
                 <search string="search reports">
                     <field name="name"/>
@@ -33,7 +33,7 @@
 
         <record id="view_reports_tree" model="ir.ui.view">
             <field name="name">view_reports_tree.tree</field>
-            <field name="model">report.reports</field>
+            <field name="model">technical.report</field>
             <field name="type">tree</field>
             <field name="arch" type="xml">
                 <tree>
@@ -53,7 +53,7 @@
 
         <record id="view_reports_form" model="ir.ui.view">
             <field name="name">view_reports_form.form</field>
-            <field name="model">report.reports</field>
+            <field name="model">technical.report</field>
             <field name="type">form</field>
             <field name="arch" type="xml">
                 <form>
@@ -180,7 +180,7 @@
 
         <record id="action_reports" model="ir.actions.act_window">
             <field name="name">Reports</field>
-            <field name="res_model">report.reports</field>
+            <field name="res_model">technical.report</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
         </record>

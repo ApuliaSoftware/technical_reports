@@ -3,7 +3,7 @@
     <data>
         <record id="act_technical_reports_partner" model="ir.actions.act_window">
             <field name="name">Technical reports</field>
-            <field name="res_model">report.reports</field>
+            <field name="res_model">technical.report</field>
             <field name="view_mode">tree,form</field>
             <field name="context">
                 {

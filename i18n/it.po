@@ -150,7 +150,7 @@ msgid "Confirm"
 msgstr "Conferma"
 
 #. module: technical_reports
-#: selection:report.reports,order_type:0
+#: selection:technical.report,order_type:0
 msgid "Consumptive"
 msgstr "Consuntivo"
 
@@ -206,12 +206,12 @@ msgid "Display Name"
 msgstr "Nome Visualizzato"
 
 #. module: technical_reports
-#: selection:report.reports,state:0
+#: selection:technical.report,state:0
 msgid "Done"
 msgstr "Fatto"
 
 #. module: technical_reports
-#: selection:report.reports,state:0
+#: selection:technical.report,state:0
 msgid "Draft"
 msgstr "Bozza"
 
@@ -373,7 +373,7 @@ msgstr "Cliente"
 
 #. module: technical_reports
 #: model:ir.ui.view,arch_db:technical_reports.reports_filter
-#: selection:report.reports,order_type:0
+#: selection:technical.report,order_type:0
 msgid "Prepaid"
 msgstr "Prepagato"
 
@@ -447,7 +447,7 @@ msgstr "Rapporti tecnici"
 #: model:ir.model.fields,field_description:technical_reports.field_report_reports_to_invoice
 #: model:ir.ui.view,arch_db:technical_reports.reports_filter
 #: model:ir.ui.view,arch_db:technical_reports.view_reports_form
-#: selection:report.reports,state:0
+#: selection:technical.report,state:0
 msgid "To invoice"
 msgstr "Da fatturare"
 
@@ -484,8 +484,8 @@ msgstr "report.notes"
 
 #. module: technical_reports
 #: model:ir.model,name:technical_reports.model_report_reports
-msgid "report.reports"
-msgstr "report.reports"
+msgid "technical.report"
+msgstr "technical.report"
 
 #. module: technical_reports
 #: model:ir.model,name:technical_reports.model_report_technical_reports_technical_reports_external_qweb

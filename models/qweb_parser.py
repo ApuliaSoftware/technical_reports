@@ -13,7 +13,7 @@ class TechnicalReportsQweb(models.AbstractModel):
     def render_html(self, docids, data=None):
         print (self.env.context, docids)
 
-        docs = self.env['report.reports'].browse(docids)
+        docs = self.env['technical.report'].browse(docids)
 
         docargs = {
             'timediff': self._timediff,
@@ -37,7 +37,7 @@ class ExternalReportsQweb(models.AbstractModel):
     def render_html(self, docids, data=None):
         print (self.env.context, docids)
 
-        docs = self.env['report.reports'].browse(docids)
+        docs = self.env['technical.report'].browse(docids)
 
         docargs = {
             'timediff': self._timediff,

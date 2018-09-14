@@ -17,7 +17,7 @@
 
         <report
             id="technical_reports"
-            model="report.reports"
+            model="technical.report"
             string="Internal report"
             report_type="qweb-pdf"
             name="technical_reports.technical_reports_qweb"
@@ -26,7 +26,7 @@
         />
         <report
             id="external_reports"
-            model="report.reports"
+            model="technical.report"
             string="External report"
             report_type="qweb-pdf"
             name="technical_reports.technical_reports_external_qweb"

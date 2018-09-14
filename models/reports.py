@@ -6,9 +6,9 @@ from datetime import datetime
 from openerp.exceptions import UserError
 
 
-class Reports(models.Model):
+class TechnicalReport(models.Model):
 
-    _name = 'report.reports'
+    _name = 'technical.report'
 
     _rec_name = "display_name"
 
@@ -64,7 +64,7 @@ class Reports(models.Model):
         if vals.get('name', _('New')) == _('New'):
             vals['name'] = self.env['ir.sequence'].next_by_code(
                 'technical.reports') or _('New')
-        result = super(Reports, self).create(vals)
+        result = super(TechnicalReport, self).create(vals)
         return result
 
     @api.multi

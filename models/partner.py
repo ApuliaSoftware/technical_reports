@@ -11,7 +11,7 @@ class ResPartner (models.Model):
 
     technical_reports_count = fields.Integer(
         compute='_compute_technical_reports_count', string="Technical reports")
-    technical_reports_ids = fields.One2many('report.reports',
+    technical_reports_ids = fields.One2many('technical.report',
                                             'partner_id',
                                             string='Technical reports')
 
