@@ -10,6 +10,7 @@ class TechnicalReportNotes(models.Model):
     _rec_name = "display_name"
 
     partner_id = fields.Many2one("res.partner", string="Partner", required=True)
+    summary = fields.Char(size=50)
     date_and_hour = fields.Datetime(required=True, default=fields.Datetime.now)
     notes = fields.Html(required=True)
     worked = fields.Boolean()

@@ -6,14 +6,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 10.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-13 07:08+0000\n"
-"PO-Revision-Date: 2018-09-13 07:08+0000\n"
+"POT-Creation-Date: 2018-09-18 10:00+0000\n"
+"PO-Revision-Date: 2018-09-18 10:00+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_technical_reports_advance_payment_inv_count
+msgid "# of Orders"
+msgstr "# Ordini"
 
 #. module: technical_reports
 #: model:ir.ui.view,arch_db:technical_reports.technical_reports_qweb_document
@@ -118,26 +123,37 @@ msgid "<strong>Time journey: </strong>"
 msgstr "<strong>Durata viaggio: </strong>"
 
 #. module: technical_reports
+#: model:ir.model.fields,help:technical_reports.field_technical_reports_advance_payment_inv_deposit_account_id
+msgid "Account used for deposits"
+msgstr "Conto utilizzato per depositi"
+
+#. module: technical_reports
 #: model:ir.ui.view,arch_db:technical_reports.reports_filter
 #: model:ir.ui.view,arch_db:technical_reports.view_reports_form
 msgid "Activity"
 msgstr "Attività"
 
 #. module: technical_reports
-#: model:ir.model.fields,field_description:technical_reports.field_report_reports_activity_description
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_activity_description
 msgid "Activity description"
 msgstr "Descrizione attività"
 
 #. module: technical_reports
 #: model:ir.ui.view,arch_db:technical_reports.view_reports_form
+#: model:ir.ui.view,arch_db:technical_reports.view_technical_reports_advance_payment_inv
 msgid "Cancel"
 msgstr "Annulla"
 
 #. module: technical_reports
-#: model:ir.model.fields,field_description:technical_reports.field_report_reports_city
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_city
 #: model:ir.ui.view,arch_db:technical_reports.view_reports_form
 msgid "City"
 msgstr "Città"
+
+#. module: technical_reports
+#: model:ir.model,name:technical_reports.model_res_company
+msgid "Companies"
+msgstr "Aziende"
 
 #. module: technical_reports
 #: model:ir.ui.view,arch_db:technical_reports.reports_filter
@@ -156,23 +172,32 @@ msgstr "Consuntivo"
 
 #. module: technical_reports
 #: model:ir.ui.view,arch_db:technical_reports.view_reports_form
-msgid "Create invoice"
+msgid "Create Invoice"
 msgstr "Crea fattura"
 
 #. module: technical_reports
-#: model:ir.model.fields,field_description:technical_reports.field_report_notes_create_uid
-#: model:ir.model.fields,field_description:technical_reports.field_report_reports_create_uid
+#: model:ir.ui.view,arch_db:technical_reports.view_technical_reports_advance_payment_inv
+msgid "Create and View Invoices"
+msgstr "Crea e mostra fattura"
+
+#. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_report_table_create_uid
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_create_uid
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_notes_create_uid
+#: model:ir.model.fields,field_description:technical_reports.field_technical_reports_advance_payment_inv_create_uid
 msgid "Created by"
 msgstr "Creato da"
 
 #. module: technical_reports
-#: model:ir.model.fields,field_description:technical_reports.field_report_notes_create_date
-#: model:ir.model.fields,field_description:technical_reports.field_report_reports_create_date
+#: model:ir.model.fields,field_description:technical_reports.field_report_table_create_date
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_create_date
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_notes_create_date
+#: model:ir.model.fields,field_description:technical_reports.field_technical_reports_advance_payment_inv_create_date
 msgid "Created on"
 msgstr "Creato il"
 
 #. module: technical_reports
-#: model:ir.model.fields,field_description:technical_reports.field_report_reports_customer_note
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_customer_note
 #: model:ir.ui.view,arch_db:technical_reports.view_reports_form
 msgid "Customer note"
 msgstr "Note del cliente"
@@ -183,7 +208,7 @@ msgid "Date"
 msgstr "Data"
 
 #. module: technical_reports
-#: model:ir.model.fields,field_description:technical_reports.field_report_notes_date_and_hour
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_notes_date_and_hour
 msgid "Date and hour"
 msgstr "Data e Ora"
 
@@ -193,15 +218,12 @@ msgid "Description"
 msgstr "Descrizione"
 
 #. module: technical_reports
-#: model:ir.model.fields,field_description:technical_reports.field_report_reports_digital_sign
-msgid "Digital sign"
-msgstr "Firma digitale"
-
-#. module: technical_reports
-#: model:ir.model.fields,field_description:technical_reports.field_report_notes_display_name
-#: model:ir.model.fields,field_description:technical_reports.field_report_reports_display_name
+#: model:ir.model.fields,field_description:technical_reports.field_report_table_display_name
 #: model:ir.model.fields,field_description:technical_reports.field_report_technical_reports_technical_reports_external_qweb_display_name
 #: model:ir.model.fields,field_description:technical_reports.field_report_technical_reports_technical_reports_qweb_display_name
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_display_name
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_notes_display_name
+#: model:ir.model.fields,field_description:technical_reports.field_technical_reports_advance_payment_inv_display_name
 msgid "Display Name"
 msgstr "Nome Visualizzato"
 
@@ -211,40 +233,51 @@ msgid "Done"
 msgstr "Fatto"
 
 #. module: technical_reports
+#: code:addons/technical_reports/wizard/technical_report_make_invoice.py:67
+#, python-format
+msgid "Down Payment"
+msgstr "Down Payment"
+
+#. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_technical_reports_advance_payment_inv_product_id
+msgid "Down Payment Product"
+msgstr "Prodotto anticipo"
+
+#. module: technical_reports
 #: selection:technical.report,state:0
 msgid "Draft"
 msgstr "Bozza"
 
 #. module: technical_reports
-#: model:ir.model.fields,field_description:technical_reports.field_report_reports_end_activity_date
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_end_activity_date
 msgid "End activity date"
 msgstr "Data fine attività"
 
 #. module: technical_reports
-#: model:ir.model.fields,field_description:technical_reports.field_report_reports_end_journey_date
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_end_journey_date
 msgid "End journey date"
 msgstr "Data fine viaggio"
 
 #. module: technical_reports
-#: code:addons/technical_reports/models/reports.py:124
+#: code:addons/technical_reports/models/reports.py:129
 #, python-format
 msgid "Error! Activity ending date must be lower than journey ending date."
 msgstr "Errore! La data di fine attività deve essere antecedente alla data di fine viaggio."
 
 #. module: technical_reports
-#: code:addons/technical_reports/models/reports.py:116
+#: code:addons/technical_reports/models/reports.py:105
 #, python-format
 msgid "Error! Activity starting date must be bigger than journey starting date."
 msgstr "Errore! La data di inizio attività deve essere successiva alla data di inizio viaggio."
 
 #. module: technical_reports
-#: code:addons/technical_reports/models/reports.py:101
+#: code:addons/technical_reports/models/reports.py:117
 #, python-format
 msgid "Error! Activity starting date must be lower than its ending date."
-msgstr "Errore! La data d'inizio attività deve essere antecedente alla data di fine viaggio."
+msgstr "Errore! La data d'inizio attività deve essere antecedente alla data di fine attività."
 
 #. module: technical_reports
-#: code:addons/technical_reports/models/reports.py:108
+#: code:addons/technical_reports/models/reports.py:141
 #, python-format
 msgid "Error! Journey starting date must be lower than its ending date."
 msgstr "Errore! La data d'inizio viaggio deve essere antecedente alla data di fine viaggio."
@@ -255,14 +288,24 @@ msgid "External report"
 msgstr "Rapporto esterno"
 
 #. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_report_table_fixed_cost
+msgid "Fixed cost"
+msgstr "Costo fisso"
+
+#. module: technical_reports
 #: model:ir.ui.view,arch_db:technical_reports.view_reports_form
 msgid "Formation"
 msgstr "Formazione"
 
 #. module: technical_reports
-#: model:ir.model.fields,field_description:technical_reports.field_report_reports_users_ids
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_users_ids
 msgid "Formation users list"
 msgstr "Lista utenti della formazione"
+
+#. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_report_table_from_km
+msgid "From km"
+msgstr "Da km"
 
 #. module: technical_reports
 #: model:ir.ui.view,arch_db:technical_reports.notes_filter
@@ -271,12 +314,19 @@ msgid "Group By"
 msgstr "Raggruppa per"
 
 #. module: technical_reports
-#: model:ir.model.fields,field_description:technical_reports.field_report_notes_id
-#: model:ir.model.fields,field_description:technical_reports.field_report_reports_id
+#: model:ir.model.fields,field_description:technical_reports.field_report_table_id
 #: model:ir.model.fields,field_description:technical_reports.field_report_technical_reports_technical_reports_external_qweb_id
 #: model:ir.model.fields,field_description:technical_reports.field_report_technical_reports_technical_reports_qweb_id
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_id
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_notes_id
+#: model:ir.model.fields,field_description:technical_reports.field_technical_reports_advance_payment_inv_id
 msgid "ID"
 msgstr "ID"
+
+#. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_technical_reports_advance_payment_inv_deposit_account_id
+msgid "Income Account"
+msgstr "Conto di ricavo"
 
 #. module: technical_reports
 #: model:ir.actions.report.xml,name:technical_reports.technical_reports
@@ -289,28 +339,52 @@ msgid "Intervention place"
 msgstr "Luogo dell'intervento"
 
 #. module: technical_reports
-#: model:ir.model.fields,field_description:technical_reports.field_report_reports_invoice_id
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_invoice_id
 #: model:ir.ui.view,arch_db:technical_reports.view_reports_form
 msgid "Invoice"
 msgstr "Fattura"
 
 #. module: technical_reports
-#: model:ir.model.fields,field_description:technical_reports.field_report_notes___last_update
-#: model:ir.model.fields,field_description:technical_reports.field_report_reports___last_update
+#: model:ir.actions.act_window,name:technical_reports.action_technical_reports_advance_payment_inv
+msgid "Invoice technical reports"
+msgstr "Invoice technical reports"
+
+#. module: technical_reports
+#: model:ir.ui.view,arch_db:technical_reports.view_technical_reports_advance_payment_inv
+msgid "Invoices will be created in draft so that you can review\n"
+"                        them before validation."
+msgstr "Le fatture saranno create in bozza in modo da poterle rivedere\n"
+"prima della validazione."
+
+#. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_project_config_settings_service_id
+#: model:ir.model.fields,field_description:technical_reports.field_res_company_service_id
+msgid "Labor service report"
+msgstr "Servizio di manodopera"
+
+#. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_report_table___last_update
 #: model:ir.model.fields,field_description:technical_reports.field_report_technical_reports_technical_reports_external_qweb___last_update
 #: model:ir.model.fields,field_description:technical_reports.field_report_technical_reports_technical_reports_qweb___last_update
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report___last_update
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_notes___last_update
+#: model:ir.model.fields,field_description:technical_reports.field_technical_reports_advance_payment_inv___last_update
 msgid "Last Modified on"
 msgstr "Ultima modifica il"
 
 #. module: technical_reports
-#: model:ir.model.fields,field_description:technical_reports.field_report_notes_write_uid
-#: model:ir.model.fields,field_description:technical_reports.field_report_reports_write_uid
+#: model:ir.model.fields,field_description:technical_reports.field_report_table_write_uid
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_notes_write_uid
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_write_uid
+#: model:ir.model.fields,field_description:technical_reports.field_technical_reports_advance_payment_inv_write_uid
 msgid "Last Updated by"
 msgstr "Ultima modifica di"
 
 #. module: technical_reports
-#: model:ir.model.fields,field_description:technical_reports.field_report_notes_write_date
-#: model:ir.model.fields,field_description:technical_reports.field_report_reports_write_date
+#: model:ir.model.fields,field_description:technical_reports.field_report_table_write_date
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_notes_write_date
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_write_date
+#: model:ir.model.fields,field_description:technical_reports.field_technical_reports_advance_payment_inv_write_date
 msgid "Last Updated on"
 msgstr "Ultima modifica il"
 
@@ -335,37 +409,37 @@ msgstr "Non da fatturare"
 #. module: technical_reports
 #: model:ir.ui.view,arch_db:technical_reports.technical_reports_qweb_document
 msgid "Note"
-msgstr "Nota"
+msgstr "Appunti"
 
 #. module: technical_reports
-#: model:ir.model.fields,field_description:technical_reports.field_report_notes_notes
-#: model:ir.model.fields,field_description:technical_reports.field_report_reports_notes_ids
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_notes_ids
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_notes_notes
 #: model:ir.ui.menu,name:technical_reports.action_menu_notes
 #: model:ir.ui.view,arch_db:technical_reports.view_reports_form
 msgid "Notes"
-msgstr "Note"
+msgstr "Appunti"
 
 #. module: technical_reports
-#: model:ir.model.fields,field_description:technical_reports.field_report_reports_name
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_name
 msgid "Number"
 msgstr "Numero"
 
 #. module: technical_reports
-#: model:ir.model.fields,field_description:technical_reports.field_report_reports_order_type
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_order_type
 #: model:ir.ui.view,arch_db:technical_reports.view_reports_form
 msgid "Order type"
 msgstr "Tipo ordine"
 
 #. module: technical_reports
-#: model:ir.model.fields,field_description:technical_reports.field_report_reports_partecipants_customer_description
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_partecipants_customer_description
 msgid "Partecipants customer description"
 msgstr "Descrizione dei clienti partecipanti"
 
 #. module: technical_reports
 #: model:ir.model,name:technical_reports.model_res_partner
-#: model:ir.model.fields,field_description:technical_reports.field_report_notes_partner_id
-#: model:ir.model.fields,field_description:technical_reports.field_report_reports_intervention_place
-#: model:ir.model.fields,field_description:technical_reports.field_report_reports_partner_id
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_intervention_place
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_notes_partner_id
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_partner_id
 #: model:ir.ui.view,arch_db:technical_reports.notes_filter
 #: model:ir.ui.view,arch_db:technical_reports.reports_filter
 msgid "Partner"
@@ -379,13 +453,13 @@ msgstr "Prepagato"
 
 #. module: technical_reports
 #: model:ir.model,name:technical_reports.model_project_project
-#: model:ir.model.fields,field_description:technical_reports.field_report_reports_project_id
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_project_id
 #: model:ir.ui.view,arch_db:technical_reports.reports_filter
 msgid "Project"
 msgstr "Progetto"
 
 #. module: technical_reports
-#: model:ir.model.fields,field_description:technical_reports.field_report_reports_project_activity_id
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_project_activity_id
 msgid "Project activity"
 msgstr "Attività del progetto"
 
@@ -403,19 +477,29 @@ msgid "Reports"
 msgstr "Report"
 
 #. module: technical_reports
+#: model:ir.ui.view,arch_db:technical_reports.project_setting_report
+msgid "Reports management"
+msgstr "Gestione rapporti tecnici"
+
+#. module: technical_reports
 #: model:ir.ui.view,arch_db:technical_reports.technical_reports_qweb_document
 msgid "Spett."
 msgstr "Spett."
 
 #. module: technical_reports
-#: model:ir.model.fields,field_description:technical_reports.field_report_reports_start_activity_date
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_start_activity_date
 msgid "Start activity date"
 msgstr "Data di inizio attività"
 
 #. module: technical_reports
-#: model:ir.model.fields,field_description:technical_reports.field_report_reports_start_journey_date
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_start_journey_date
 msgid "Start journey date"
 msgstr "Data di inizio viaggio"
+
+#. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_notes_summary
+msgid "Summary"
+msgstr "Riepilogo"
 
 #. module: technical_reports
 #: model:ir.model,name:technical_reports.model_project_task
@@ -423,7 +507,13 @@ msgid "Task"
 msgstr "Attività"
 
 #. module: technical_reports
-#: model:ir.model.fields,field_description:technical_reports.field_report_notes_report_id
+#: model:ir.model,name:technical_reports.model_technical_reports_advance_payment_inv
+msgid "Technical Report Advance Payment Invoice"
+msgstr "Technical Report Advance Payment Invoice"
+
+#. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_report_table_table_id
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_notes_report_id
 msgid "Technical report"
 msgstr "Rapporto tecnico"
 
@@ -444,12 +534,23 @@ msgid "Technical reports"
 msgstr "Rapporti tecnici"
 
 #. module: technical_reports
-#: model:ir.model.fields,field_description:technical_reports.field_report_reports_to_invoice
+#: code:addons/technical_reports/wizard/technical_report_make_invoice.py:62
+#, python-format
+msgid "There is no income account defined for this product: \"%s\". You may have to install a chart of account from Accounting app, settings menu."
+msgstr "There is no income account defined for this product: \"%s\". You may have to install a chart of account from Accounting app, settings menu."
+
+#. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_to_invoice
 #: model:ir.ui.view,arch_db:technical_reports.reports_filter
 #: model:ir.ui.view,arch_db:technical_reports.view_reports_form
 #: selection:technical.report,state:0
 msgid "To invoice"
 msgstr "Da fatturare"
+
+#. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_report_table_to_km
+msgid "To km"
+msgstr "A km"
 
 #. module: technical_reports
 #: model:ir.ui.view,arch_db:technical_reports.technical_reports_qweb_document
@@ -462,7 +563,24 @@ msgid "Trainer user"
 msgstr "Utente formatore"
 
 #. module: technical_reports
-#: model:ir.model.fields,field_description:technical_reports.field_report_notes_worked
+#: model:ir.model.fields,field_description:technical_reports.field_project_config_settings_travel_costs_ids
+#: model:ir.model.fields,field_description:technical_reports.field_res_company_travel_costs_ids
+msgid "Travel costs"
+msgstr "Costi di traferta"
+
+#. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_project_config_settings_travel_product
+#: model:ir.model.fields,field_description:technical_reports.field_res_company_travel_product
+msgid "Travel product"
+msgstr "Prodotto di trasferta"
+
+#. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_report_table_variable_cost
+msgid "Variable cost"
+msgstr "Costo variabile"
+
+#. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_notes_worked
 #: model:ir.ui.view,arch_db:technical_reports.technical_reports_qweb_document
 msgid "Worked"
 msgstr "Lavorato"
@@ -478,14 +596,24 @@ msgid "days"
 msgstr "Giorno/i"
 
 #. module: technical_reports
+#: model:ir.model,name:technical_reports.model_project_config_settings
+msgid "project.config.settings"
+msgstr "project.config.settings"
+
+#. module: technical_reports
 #: model:ir.model,name:technical_reports.model_report_notes
-msgid "technical.report.notes"
-msgstr "technical.report.notes"
+msgid "report.notes"
+msgstr "report.notes"
 
 #. module: technical_reports
 #: model:ir.model,name:technical_reports.model_report_reports
-msgid "technical.report"
-msgstr "technical.report"
+msgid "report.reports"
+msgstr "report.reports"
+
+#. module: technical_reports
+#: model:ir.model,name:technical_reports.model_report_table
+msgid "report.table"
+msgstr "report.table"
 
 #. module: technical_reports
 #: model:ir.model,name:technical_reports.model_report_technical_reports_technical_reports_external_qweb
@@ -508,7 +636,17 @@ msgid "search reports"
 msgstr "Ricerca rapporti"
 
 #. module: technical_reports
-#: model:ir.model.fields,field_description:technical_reports.field_report_reports_state
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_state
 msgid "state"
-msgstr "state"
+msgstr "stato"
+
+#. module: technical_reports
+#: model:ir.model,name:technical_reports.model_technical_report
+msgid "technical.report"
+msgstr "technical.report"
+
+#. module: technical_reports
+#: model:ir.model,name:technical_reports.model_technical_report_notes
+msgid "technical.report.notes"
+msgstr "technical.report.notes"
 

@@ -145,4 +145,16 @@ class TechnicalReport(models.Model):
                         'than its ending date.'
                     ))
 
+    @api.multi
+    def action_view_invoice(self):
+
+        action = self.env.ref('account.action_invoice_tree1').read()[0]
+
+        if self.invoice_id:
+            action['views'] = [
+                (self.env.ref('account.invoice_form').id, 'form')]
+            action['res_id'] = self.invoice_id.id
+        else:
+            action = {'type': 'ir.actions.act_window_close'}
+        return action
 

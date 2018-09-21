@@ -61,7 +61,8 @@
                          <button name="action_to_confirm" states="draft" string="Confirm"  type="object" />
                          <button name="action_draft" state="draft" string="Cancel" type="object"
                                  attrs="{'invisible': [('state', '=', 'draft')]}"/>
-                         <button name="action_done" states="to invoice" string="Create invoice" type="object"/>
+                         <button name="%(action_technical_reports_advance_payment_inv)d" string="Create Invoice"
+                            type="action" class="btn-primary" states="to invoice"/>
                          <field name="state" widget="statusbar"/>
                     </header>
                     <group>
@@ -106,7 +107,7 @@
                                     <field name="to_invoice" string="To invoice"
                                            attrs="{'readonly': [('state', '!=', 'draft')]}"/>
                                 </div>
-                                <div class="col-sm-4" states="done">
+                                <div class="col-sm-4"  attrs="{'invisible': [('invoice_id', '=', False)]}">
                                     <label style="font-weight:bold" string="Invoice"/>
                                     <span style="color:silver">   |    </span>
                                     <field name="invoice_id"/>
@@ -133,11 +134,14 @@
                                     attrs="{'readonly': [('state', '!=', 'draft')]}">
                                  <tree>
                                      <field name="date_and_hour"/>
-                                     <field name="notes"/>
+                                     <field name="summary"/>
                                      <field name="worked"/>
                                  </tree>
                                  <form>
                                      <field name="partner_id" attrs="{'invisible':1}"/>
+                                     <group>
+                                         <field name="summary"/>
+                                     </group>
                                      <group>
                                          <field name="notes"/>
                                      </group>
