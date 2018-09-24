@@ -7,10 +7,10 @@
                 <div class="page">
                     <p class="row">
                         <p>Spett. <strong><span t-field="o.partner_id.name"/></strong><br/>
-                            <span t-field="o.partner_id.street"></span><br/>
-                            <span t-field="o.partner_id.city"></span>
-                            <span t-field="o.partner_id.zip"></span><br/>
-                            <span t-field="o.partner_id.country_id"></span>
+                            <span t-field="o.partner_id.street"/><br/>
+                            <span t-field="o.partner_id.city"/>
+                            <span t-field="o.partner_id.zip"/><br/>
+                            <span t-field="o.partner_id.country_id"/>
                         </p>
                     </p><br/>
                     <h4><strong>Technical report n° </strong><span t-field="o.name"/></h4><br/>
@@ -33,8 +33,7 @@
                             <t t-if="o.start_journey_date">
                                 <t t-set="journey" t-value="timediff(o.end_journey_date, o.start_journey_date)"/>
                                 <div class="col-xs-4"><strong>Time journey: </strong>
-                                    <span t-esc="journey.days"/> days
-                                    <span t-esc="journey.seconds/3600"/>:<span t-esc="journey.seconds/60"/>:<span t-esc="journey.seconds"/>
+                                    <span t-esc="(journey.days*24)+(journey.seconds/3600)"/> hours
                                 </div>
                             </t>
                         </t>
@@ -47,8 +46,7 @@
                             <t t-if="o.start_activity_date">
                                 <t t-set="activity" t-value="timediff(o.end_activity_date, o.start_activity_date)"/>
                                 <div class="col-xs-4"><strong>Time activity: </strong>
-                                    <span t-esc="activity.days"/> days
-                                    <span t-esc="activity.seconds/3600"/>:<span t-esc="activity.seconds/60"/>:<span t-esc="activity.seconds"/>
+                                    <span t-esc="(activity.days*24)+(activity.seconds/3600)"/> hours
                                 </div>
                             </t>
                         </t>
