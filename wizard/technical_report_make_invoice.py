@@ -18,7 +18,7 @@ def timediff(toDate, fromDate):
         minutes, seconds = divmod(remainder, 60.0)
         return days + hours + (minutes / 60.0)
 
-class TechReportAdvancePaymentInv(models.TransientModel):
+class TechnicalReportsAdvancePaymentInv(models.TransientModel):
     _name = "technical.reports.advance.payment.inv"
     _description = "Technical Report Advance Payment Invoice"
 

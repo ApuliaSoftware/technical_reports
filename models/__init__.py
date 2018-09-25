@@ -1,5 +1,12 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from . import reports, notes, task, qweb_parser,\
-    partner, project, res_config, travel_costs, res_company
+from . import reports
+from . import notes
+from . import task
+from . import qweb_parser
+from . import partner
+from . import project
+from . import res_config
+from . import travel_costs
+from . import res_company
