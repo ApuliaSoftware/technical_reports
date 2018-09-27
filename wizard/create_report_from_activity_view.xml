@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="create_report_from_activity_view" model="ir.ui.view">
+            <field name="name">create.report.from.activity.view</field>
+            <field name="model">report.from.activity</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                         Create technical report
+                    </sheet>
+                    <footer>
+                        <button name="create_reports" string="Create report" type="object"/> o
+                        <button string="Cancel" class="btn-default" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+    </record>
+
+    <record id="">
+
+    </record>
+</odoo>

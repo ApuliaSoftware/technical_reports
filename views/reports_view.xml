@@ -73,7 +73,7 @@
                         <group>
                             <field name="project_id" domain="[('partner_id', '=', partner_id)]"
                                   options="{'no_create_edit':True}" attrs="{'readonly': ['|', ('state', '!=', 'draft'), ('partner_id', '=', False)]}"/>
-                            <field name="project_activity_id" domain="[('project_id', '=', project_id)]" position="replace"
+                            <field name="project_activity_id" domain="[('project_id', '=', project_id)]"
                                    attrs="{'invisible':[('project_id', '=', False)], 'readonly': [('state', '!=', 'draft')]}"
                                    context="{'default_project_id' : project_id}"/>
                         </group>

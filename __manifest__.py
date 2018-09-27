@@ -21,6 +21,7 @@
         'views/partner_view.xml',
         'views/project_view.xml',
         'views/res_config_view.xml',
+        'wizard/create_report_from_activity_view.xml',
 
     ],
     'installable': True

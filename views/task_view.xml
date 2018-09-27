@@ -7,8 +7,8 @@
             <field name="view_mode">tree,form</field>
             <field name="context">
                 {
-                'search_default_project_activity_id': [active_id],
-                'default_project_activity_id': active_id,
+                'search_default_project_activity_id': active_id,
+                'default_project_activity_id': active_id
                 }
             </field>
         </record>
@@ -18,12 +18,18 @@
             <field name="model">project.task</field>
             <field name="inherit_id" ref="project.view_task_form2"/>
             <field name="arch" type="xml">
+
+                <header>
+                    <button name="create_reports" type="action" string="Create report" class="btn-primary"/>
+                </header>
+
                 <xpath expr="//button" position="before">
                     <button name="%(act_technical_reports_task)d" type="action" string="Report tasks" widget="statinfo"
                             class="oe_stat_button" icon="fa-list">
                         <field name="technical_reports_count" widget="statinfo" nolabel="1"/>
                     </button>
                 </xpath>
+
             </field>
         </record>
     </data>
