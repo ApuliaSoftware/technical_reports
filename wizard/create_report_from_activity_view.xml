@@ -11,14 +11,19 @@
                          Create technical report
                     </sheet>
                     <footer>
-                        <button name="create_reports" string="Create report" type="object"/> o
+                        <button name="create_report" string="Create report" type="object"/> o
                         <button string="Cancel" class="btn-default" special="cancel"/>
                     </footer>
                 </form>
             </field>
     </record>
 
-    <record id="">
-
+    <record id="action_create_report_from_activity" model="ir.actions.act_window">
+        <field name="name">Create technical report</field>
+        <field name="res_model">report.from.activity</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
     </record>
+
 </odoo>

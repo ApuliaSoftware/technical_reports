@@ -22,7 +22,8 @@ class ReportFromActivity(models.TransientModel):
             vals = {
                 'partner_id': partner_id.id or False,
                 'project_id': activity.project_id.id or False,
-                'project_activity_id': activity.project_activity_id.id
+                'project_activity_id': activity.id,
+                'order_type': 'prepaid'
             }
             tec_rep = tec_rep_obj.create(vals)
 
@@ -31,7 +32,8 @@ class ReportFromActivity(models.TransientModel):
                 'view_type': 'form',
                 'view_mode': 'form',
                 'res_model': 'technical.report',
-                'view_id': self.ref('technical_reports.view_reports_form').id,
+                'res_id': tec_rep.id,
+                'view_id': self.env.ref('technical_reports.view_reports_form').id,
                 'target': 'current'
             }
 

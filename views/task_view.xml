@@ -18,18 +18,16 @@
             <field name="model">project.task</field>
             <field name="inherit_id" ref="project.view_task_form2"/>
             <field name="arch" type="xml">
+                <xpath expr="//header" position="inside">
+                    <button name="%(action_create_report_from_activity)d" type="action" string="Create technical report"/>
+                </xpath>
 
-                <header>
-                    <button name="create_reports" type="action" string="Create report" class="btn-primary"/>
-                </header>
-
-                <xpath expr="//button" position="before">
+                <xpath expr="//button[@name='toggle_active']" position="after">
                     <button name="%(act_technical_reports_task)d" type="action" string="Report tasks" widget="statinfo"
                             class="oe_stat_button" icon="fa-list">
                         <field name="technical_reports_count" widget="statinfo" nolabel="1"/>
                     </button>
                 </xpath>
-
             </field>
         </record>
     </data>
