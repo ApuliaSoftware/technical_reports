@@ -84,7 +84,7 @@
                                 <div class="col-sm-7">
                                     <label style="font-weight:bold" string="Intervention place"/>
                                     <span style="color:silver">   |    </span>
-                                    <field name="intervention_place" string="Intervention place" domain="[('parent_id', '=', partner_id)]"
+                                    <field name="intervention_place" string="Intervention place" domain="['|',('id', '=', partner_id), ('parent_id', '=', partner_id)]"
                                            attrs="{'readonly': ['|', ('state', '!=', 'draft'), ('partner_id', '=', False)]}"/>
                                 </div>
                                 <div class = "col-sm-3" attrs="{'invisible':[('intervention_place', '=', False)]}">

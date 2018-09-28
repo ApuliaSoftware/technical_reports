@@ -40,9 +40,10 @@ class TechnicalReport(models.Model):
         string="state", default="draft")
     invoice_id = fields.Many2one ("account.invoice", string="Invoice",
                                   readonly=True)
-    intervention_place = fields.Many2one("res.partner", string="Partner")
+    intervention_place = fields.Many2one("res.partner")
     city = fields.Char(related="intervention_place.city", string="City",
                        store=True, readonly=True)
+    street = fields.Char(related="intervention_place.street")
 
     @api.multi
     def _display_name(self):
@@ -88,7 +89,7 @@ class TechnicalReport(models.Model):
     @api.onchange("partner_id")
     def change_partner(self):
         self.project_id = False
-        self.intervention_place = False
+        self.intervention_place = self.partner_id
         self.project_activity_id = False
 
 
