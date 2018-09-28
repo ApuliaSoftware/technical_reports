@@ -23,7 +23,8 @@ class ReportFromActivity(models.TransientModel):
                 'partner_id': partner_id.id or False,
                 'project_id': activity.project_id.id or False,
                 'project_activity_id': activity.id,
-                'order_type': 'prepaid'
+                'order_type': 'prepaid',
+                'intervention_place': partner_id.id
             }
             tec_rep = tec_rep_obj.create(vals)
 
