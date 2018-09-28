@@ -6,7 +6,7 @@
             <field name="model">report.from.activity</field>
             <field name="type">form</field>
             <field name="arch" type="xml">
-                <form>
+                <form string="Create technical report">
                     <sheet>
                          Create technical report
                     </sheet>
@@ -25,5 +25,14 @@
         <field name="view_mode">form</field>
         <field name="target">new</field>
     </record>
+
+    <!--<record model="ir.values" id="create_report_from_activity">-->
+        <!--<field name="model_id" ref="technical_reports.model_report_from_activity" />-->
+        <!--<field name="name">Create technical report</field>-->
+        <!--<field name="key2">client_action_multi</field>-->
+        <!--<field name="value" eval="'ir.actions.act_window,' + str(ref('action_create_report_from_activity'))" />-->
+        <!--<field name="key">action</field>-->
+        <!--<field name="model">project.task</field>-->
+    <!--</record>-->
 
 </odoo>
