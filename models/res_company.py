@@ -27,4 +27,3 @@ class ResCompany(models.Model):
                 self.partner_id)
             if distance:
                 p.distance = distance
-

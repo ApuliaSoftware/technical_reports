@@ -35,10 +35,7 @@ class ExternalReportsQweb(models.AbstractModel):
 
     @api.multi
     def render_html(self, docids, data=None):
-        print (self.env.context, docids)
-
         docs = self.env['technical.report'].browse(docids)
-
         docargs = {
             'timediff': self._timediff,
             'docs': docs,

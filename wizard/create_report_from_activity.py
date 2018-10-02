@@ -3,6 +3,7 @@
 
 from odoo import api, fields, models
 
+
 class ReportFromActivity(models.TransientModel):
 
     _name = 'report.from.activity'
@@ -18,7 +19,6 @@ class ReportFromActivity(models.TransientModel):
             if not activity.partner_id:
                 if activity.project_id:
                     partner_id = activity.project_id.partner_id
-
             vals = {
                 'partner_id': partner_id.id or False,
                 'project_id': activity.project_id.id or False,
@@ -27,14 +27,13 @@ class ReportFromActivity(models.TransientModel):
                 'intervention_place': partner_id.id
             }
             tec_rep = tec_rep_obj.create(vals)
-
             return {
                 'type': 'ir.actions.act_window',
                 'view_type': 'form',
                 'view_mode': 'form',
                 'res_model': 'technical.report',
                 'res_id': tec_rep.id,
-                'view_id': self.env.ref('technical_reports.view_reports_form').id,
+                'view_id': self.env.ref(
+                    'technical_reports.view_reports_form').id,
                 'target': 'current'
             }
-

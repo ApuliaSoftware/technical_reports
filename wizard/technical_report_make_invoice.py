@@ -2,17 +2,14 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 from datetime import datetime
-
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError
-
 
 def timediff(toDate, fromDate):
     if toDate and fromDate:
         date1 = datetime.strptime(toDate, '%Y-%m-%d %H:%M:%S')
         date2 = datetime.strptime(fromDate, '%Y-%m-%d %H:%M:%S')
         result = date1 - date2
-
         days = result.days*24
         hours, remainder = divmod(result.seconds, 3600.0)
         minutes, seconds = divmod(remainder, 60.0)
@@ -20,6 +17,7 @@ def timediff(toDate, fromDate):
 
 
 class TechnicalReportsAdvancePaymentInv(models.TransientModel):
+
     _name = "technical.reports.advance.payment.inv"
     _description = "Technical Report Advance Payment Invoice"
 
@@ -60,6 +58,7 @@ class TechnicalReportsAdvancePaymentInv(models.TransientModel):
                                  default=_default_product_id)
     travel_product_id = fields.Many2one('product.product',
                                  default=_default_travel_product_id)
+
     @api.multi
     def _create_invoice(self, report):
         inv_obj = self.env['account.invoice']
@@ -109,7 +108,8 @@ class TechnicalReportsAdvancePaymentInv(models.TransientModel):
                          )
                 else:
                     if self.travel_product_id.taxes_id.id:
-                        travel_taxes_ids = [(6, 0, [self.travel_product_id.taxes_id.id])]
+                        travel_taxes_ids = [(6, 0, [
+                            self.travel_product_id.taxes_id.id])]
                     else:
                         travel_taxes_ids = False
                     invoice_lines.append((0, 0, {
@@ -119,41 +119,35 @@ class TechnicalReportsAdvancePaymentInv(models.TransientModel):
                             + str(report.intervention_place.distance) + ' km)',
                     'origin': report.name,
                     'account_id': account_id,
-                    'price_unit': self.travel_cost(report.intervention_place.distance),
+                    'price_unit': self.travel_cost(
+                        report.intervention_place.distance),
                     'quantity': 1.0,
                     'discount': 0.0,
                     'uom_id': self.travel_product_id.uom_id.id,
                     'product_id': self.travel_product_id.id,
                     'invoice_line_tax_ids': travel_taxes_ids,
                 }))
-
             invoice = inv_obj.create({
                 'name': report.name,
                 'origin': report.name,
                 'type': 'out_invoice',
                 'reference': False,
-                'account_id': report.partner_id.property_account_receivable_id.id,
+                'account_id':
+                    report.partner_id.property_account_receivable_id.id,
                 'partner_id': report.partner_id.id,
                 'partner_shipping_id': report.intervention_place.id,
                 'invoice_line_ids': invoice_lines,
             })
-
             report.invoice_id = invoice.id
             report.state = 'done'
-
             return invoice
 
     @api.multi
     def create_invoices(self):
         technical_reports = self.env['technical.report'].browse(
             self._context.get('active_ids', []))
-
         for report in technical_reports:
             self._create_invoice(report)
-
         if self._context.get('open_invoices', False):
             return technical_reports.action_view_invoice()
         return {'type': 'ir.actions.act_window_close'}
-
-
-

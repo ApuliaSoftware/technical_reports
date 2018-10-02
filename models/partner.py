@@ -34,7 +34,7 @@ class ResPartner (models.Model):
         r = requests.get(partner_link)
         dict = r.json()
         data = ast.literal_eval(json.dumps(dict))
-        print('----------------------------------------------------------------')
+        print('---------------------------------------------------------------')
         print(dict)
         if "routes" in data:
             return data["routes"][0]['distance']
@@ -48,9 +48,3 @@ class ResPartner (models.Model):
                 self.env.user.company_id.partner_id)
             if distance:
                 partner.distance = distance
-
-
-
-
-
-

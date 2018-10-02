@@ -9,7 +9,6 @@ from openerp.exceptions import UserError
 class TechnicalReport(models.Model):
 
     _name = 'technical.report'
-
     _rec_name = "display_name"
 
     name = fields.Char(string='Number', required=True,
@@ -32,7 +31,8 @@ class TechnicalReport(models.Model):
     customer_note = fields.Text()
     #digital_sign = fields.Binary()
     display_name = fields.Char(compute='_display_name')
-    notes_ids = fields.One2many("technical.report.notes", "report_id", string="Notes")
+    notes_ids = fields.One2many(
+        "technical.report.notes", "report_id", string="Notes")
     state = fields.Selection([
         ('draft', 'Draft'),
         ('to invoice', 'To invoice'),
@@ -57,7 +57,6 @@ class TechnicalReport(models.Model):
                 n.convert_date = datetime.strftime(n.date_without_time,
                                                    "%Y-%m-%d")
                 sequence.append(n.convert_date)
-
             n.display_name = " - ".join(sequence)
 
     @api.model
@@ -92,7 +91,6 @@ class TechnicalReport(models.Model):
         self.intervention_place = self.partner_id
         self.project_activity_id = False
 
-
     @api.multi
     @api.constrains('start_journey_date', 'end_journey_date',
                   'start_activity_date', 'end_activity_date')
@@ -109,10 +107,8 @@ class TechnicalReport(models.Model):
                         'Activity starting date must be bigger '
                         'than journey starting date.'
                     ))
-
             if not (report.start_activity_date and report.end_activity_date):
                 continue
-
             if(report.start_activity_date > report.end_activity_date):
                 raise UserError(
                     _(
@@ -121,10 +117,8 @@ class TechnicalReport(models.Model):
                         'Activity starting date must be lower'
                         ' than its ending date.'
                     ))
-
             if not (report.end_activity_date and report.end_journey_date):
                 continue
-
             if (report.end_activity_date > report.end_journey_date):
                 raise UserError(
                     _(
@@ -133,10 +127,8 @@ class TechnicalReport(models.Model):
                         'Activity ending date must be lower'
                         ' than journey ending date.'
                     ))
-
             if not (report.start_journey_date and report.end_journey_date):
                 continue
-
             if(report.start_journey_date > report.end_journey_date):
                 raise UserError(
                     _(
@@ -148,9 +140,7 @@ class TechnicalReport(models.Model):
 
     @api.multi
     def action_view_invoice(self):
-
         action = self.env.ref('account.action_invoice_tree1').read()[0]
-
         if self.invoice_id:
             action['views'] = [
                 (self.env.ref('account.invoice_form').id, 'form')]
@@ -158,4 +148,3 @@ class TechnicalReport(models.Model):
         else:
             action = {'type': 'ir.actions.act_window_close'}
         return action
-

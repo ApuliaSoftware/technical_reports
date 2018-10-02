@@ -3,10 +3,10 @@
 
 from odoo import fields, models, api
 
+
 class TechnicalReportNotes(models.Model):
 
     _name = 'technical.report.notes'
-
     _rec_name = "display_name"
 
     partner_id = fields.Many2one("res.partner", string="Partner", required=True)

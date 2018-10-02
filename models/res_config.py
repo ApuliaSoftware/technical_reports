@@ -13,4 +13,3 @@ class ProjectConfiguration(models.TransientModel):
     travel_costs_ids = fields.One2many(
         related="company_id.travel_costs_ids", string="Travel costs")
     travel_product = fields.Many2one(related='company_id.travel_product')
-
