@@ -24,6 +24,9 @@
                         <field name="technical_reports_count" widget="statinfo" nolabel="1"/>
                     </button>
                 </div>
+                <field name="website" position="before">
+                    <field name="distance"/>
+                </field>
             </field>
         </record>
     </data>

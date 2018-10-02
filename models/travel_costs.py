@@ -12,4 +12,4 @@ class TravelCosts(models.TransientModel):
     to_km =fields.Float()
     fixed_cost =fields.Float()
     variable_cost=fields.Float()
-    travel_cost_id = fields.Many2one("res.company", string="Technical report")
+    company_id = fields.Many2one("res.company", string="Technical report")

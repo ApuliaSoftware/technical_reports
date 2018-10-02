@@ -7,7 +7,7 @@
     'category': 'Reports',
     'author': 'Apulia Software s.r.l.',
     'website': 'http://www.apuliasoftware.it',
-    'depends': ['base', 'account','project', 'report'],
+    'depends': ['base', 'base_geolocalize', 'account','project', 'report'],
     'data': [
         'security/ir.model.access.csv',
         'wizard/technical_report_make_invoice_view.xml',
@@ -22,7 +22,7 @@
         'views/partner_view.xml',
         'views/project_view.xml',
         'views/res_config_view.xml',
-
+        'views/res_company_view.xml'
     ],
     'installable': True
 }

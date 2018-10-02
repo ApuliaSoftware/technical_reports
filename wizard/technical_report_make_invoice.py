@@ -33,25 +33,40 @@ class TechnicalReportsAdvancePaymentInv(models.TransientModel):
         travel_product_id = self.env.user.company_id.travel_product
         return travel_product_id
 
-    # @api.multi
-    # @api.model
-    # def _default_travel_costs_ids(self):
-    #     #for travel in self:
-    #     travel_costs_id = self.env.user.company_id.travel_costs_ids
-    #     return travel_costs_id
+    @api.model
+    def travel_cost(self, distance):
+        cost_rules = self.env['technical.report.travel.costs'].search([
+                ('from_km', '<=', distance),
+                ('to_km', '>=', distance)
+            ])
+        if not cost_rules:
+            raise UserError(
+                _(
+                    'A rule has not been defined for this kilometric value.'
+                    ' You may have set it in a configuration menu. ')
+                )
+        elif len(cost_rules)>1:
+            raise UserError(
+                _(
+                    'More rules has been defined for this kilometric value. '
+                    'You may have modify them in a configuration menu. ')
+            )
+        else:
+            travel_cost = cost_rules.fixed_cost + (
+                    cost_rules.variable_cost * distance)
+            return travel_cost
 
     product_id = fields.Many2one('product.product',
                                  default=_default_product_id)
     travel_product_id = fields.Many2one('product.product',
                                  default=_default_travel_product_id)
-    # travel_costs_ids = fields.Many2one('technical.report.travel.costs',
-    #                              default=_default_travel_costs_ids)
-
     @api.multi
     def _create_invoice(self, report):
         inv_obj = self.env['account.invoice']
         if self.product_id.id:
-            account_id = self.product_id.property_account_income_id.id or self.product_id.categ_id.property_account_income_categ_id.id
+            account_id = \
+                self.product_id.property_account_income_id.id or \
+                self.product_id.categ_id.property_account_income_categ_id.id
             if self.product_id.taxes_id.id:
                 taxes_ids = [(6, 0, [self.product_id.taxes_id.id])]
             else:
@@ -59,7 +74,8 @@ class TechnicalReportsAdvancePaymentInv(models.TransientModel):
         else:
             raise UserError(
                 _(
-                    'A labor service has not been defined. You may have set it in a configuration menu.')
+                    'A labor service has not been defined. '
+                    'You may have set it in a configuration menu.')
                 )
         if not report.end_activity_date or not report.start_activity_date:
             raise UserError(
@@ -83,11 +99,13 @@ class TechnicalReportsAdvancePaymentInv(models.TransientModel):
                 'product_id': self.product_id.id,
                 'invoice_line_tax_ids': taxes_ids,
             })]
-            if report.end_journey_date and report.start_journey_date:
+            if report.end_journey_date and report.start_journey_date and \
+                    report.intervention_place.distance > 0 :
                 if not self.travel_product_id:
                     raise UserError(
                         _(
-                            'A travel product has not been defined. You may have set it in a configuration menu.')
+                            'A travel product has not been defined.'
+                            ' You may have set it in a configuration menu.')
                          )
                 else:
                     if self.travel_product_id.taxes_id.id:
@@ -96,15 +114,13 @@ class TechnicalReportsAdvancePaymentInv(models.TransientModel):
                         travel_taxes_ids = False
                     invoice_lines.append((0, 0, {
                     'name': self.travel_product_id.name +
-                            ' from ' +
-                            report.start_activity_date +
-                            ' to ' +
-                            report.end_activity_date,
+                            ' of ' +
+                            report.name + ' ('
+                            + str(report.intervention_place.distance) + ' km)',
                     'origin': report.name,
                     'account_id': account_id,
-                    'price_unit': self.travel_product_id.list_price,
-                    'quantity': timediff(
-                        report.end_journey_date, report.start_journey_date),
+                    'price_unit': self.travel_cost(report.intervention_place.distance),
+                    'quantity': 1.0,
                     'discount': 0.0,
                     'uom_id': self.travel_product_id.uom_id.id,
                     'product_id': self.travel_product_id.id,

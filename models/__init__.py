@@ -10,3 +10,4 @@ from . import project
 from . import res_config
 from . import travel_costs
 from . import res_company
+from . import account
