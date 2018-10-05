@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-# © 2018 Andrea Cometa (<http://www.andreacometa.it>)
-# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
+# Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 from odoo import fields, models
 

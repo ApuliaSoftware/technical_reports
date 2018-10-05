@@ -4,7 +4,7 @@
 from odoo import api, fields, models
 
 
-class ProjectConfiguration(models.TransientModel):
+class ProjectConfigSettings(models.TransientModel):
 
     _inherit = 'project.config.settings'
 

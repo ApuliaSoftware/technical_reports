@@ -4,7 +4,7 @@
 from odoo import fields, models, api
 
 
-class TravelCosts(models.TransientModel):
+class TechnicalReportTravelCosts(models.TransientModel):
 
     _name = 'technical.report.travel.costs'
 
