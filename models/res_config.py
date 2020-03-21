@@ -6,7 +6,7 @@ from odoo import api, fields, models
 
 class ProjectConfigSettings(models.TransientModel):
 
-    _inherit = 'project.config.settings'
+    _inherit = 'res.config.settings'
 
     labor_service_id = fields.Many2one(
         related='company_id.labor_service_id', string="Labor service report")
