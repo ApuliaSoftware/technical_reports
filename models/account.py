@@ -13,7 +13,6 @@ class AccountInvoice (models.Model):
         for invoice in self:
             report_id = invoice.env['technical.report'].search(
                 [('invoice_id', '=', invoice.id)])
-            result = super(AccountInvoice, self).unlink()
-            if result:
+            if report_id:
                 report_id.state = 'to invoice'
-            return result
+            return super(AccountInvoice, self).unlink()
