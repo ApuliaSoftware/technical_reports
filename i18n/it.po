@@ -513,7 +513,7 @@ msgstr "Attività Rapporto"
 #: model:ir.actions.act_window,name:technical_reports.action_notes
 #: model:ir.actions.act_window,name:technical_reports.action_reports
 msgid "Reports"
-msgstr "Resoconti"
+msgstr "Rapporti Tecnici"
 
 #. module: technical_reports
 #: model_terms:ir.ui.view,arch_db:technical_reports.project_setting_report
