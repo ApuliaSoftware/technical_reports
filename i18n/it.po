@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-20 14:13+0000\n"
-"PO-Revision-Date: 2020-08-20 14:13+0000\n"
+"POT-Creation-Date: 2020-08-20 14:45+0000\n"
+"PO-Revision-Date: 2020-08-20 14:45+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -139,6 +139,11 @@ msgid "A travel product has not been defined. You may have set it in a configura
 msgstr "Un prodotto viaggio non è stato definito. Dovresti impostarlo nel menu di configurazione"
 
 #. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_calendar_event__action_items
+msgid "Action Items"
+msgstr "Elementi d'Azione"
+
+#. module: technical_reports
 #: model_terms:ir.ui.view,arch_db:technical_reports.reports_filter
 #: model_terms:ir.ui.view,arch_db:technical_reports.view_technical_report_form
 msgid "Activity"
@@ -148,6 +153,17 @@ msgstr "Attività"
 #: model:ir.model.fields,field_description:technical_reports.field_technical_report__activity_description
 msgid "Activity Description"
 msgstr "Descrizione Attività"
+
+#. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_calendar_event__agenda_topics
+msgid "Agenda Topics"
+msgstr "Argomenti del Meeting"
+
+#. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_res_partner__calendar_id
+#: model:ir.model.fields,field_description:technical_reports.field_res_users__calendar_id
+msgid "Calendar"
+msgstr "Calendario"
 
 #. module: technical_reports
 #: model_terms:ir.ui.view,arch_db:technical_reports.create_report_from_activity_view
@@ -168,14 +184,24 @@ msgid "Companies"
 msgstr "Aziende"
 
 #. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_travel_costs__company_id
+msgid "Company"
+msgstr "Azienda"
+
+#. module: technical_reports
 #: model_terms:ir.ui.view,arch_db:technical_reports.reports_filter
 msgid "Comsumptive"
 msgstr "Consuntivo"
 
 #. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_calendar_event__conclusion
+msgid "Conclusion"
+msgstr "Conclusioni"
+
+#. module: technical_reports
 #: model:ir.model,name:technical_reports.model_res_config_settings
 msgid "Config Settings"
-msgstr "Impostazioni di Configurazione"
+msgstr "Impostazioni di configurazione"
 
 #. module: technical_reports
 #: model_terms:ir.ui.view,arch_db:technical_reports.view_technical_report_form
@@ -218,6 +244,7 @@ msgstr "Crea rapporto tecnico"
 #: model:ir.model.fields,field_description:technical_reports.field_report_from_activity__create_uid
 #: model:ir.model.fields,field_description:technical_reports.field_technical_report__create_uid
 #: model:ir.model.fields,field_description:technical_reports.field_technical_report_notes__create_uid
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_travel_costs__create_uid
 #: model:ir.model.fields,field_description:technical_reports.field_technical_reports_advance_payment_inv__create_uid
 msgid "Created by"
 msgstr "Creato da"
@@ -226,6 +253,7 @@ msgstr "Creato da"
 #: model:ir.model.fields,field_description:technical_reports.field_report_from_activity__create_date
 #: model:ir.model.fields,field_description:technical_reports.field_technical_report__create_date
 #: model:ir.model.fields,field_description:technical_reports.field_technical_report_notes__create_date
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_travel_costs__create_date
 #: model:ir.model.fields,field_description:technical_reports.field_technical_reports_advance_payment_inv__create_date
 msgid "Created on"
 msgstr "Creato il"
@@ -261,6 +289,7 @@ msgstr "Descrizione"
 #: model:ir.model.fields,field_description:technical_reports.field_report_technical_reports_technical_reports_qweb__display_name
 #: model:ir.model.fields,field_description:technical_reports.field_technical_report__display_name
 #: model:ir.model.fields,field_description:technical_reports.field_technical_report_notes__display_name
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_travel_costs__display_name
 #: model:ir.model.fields,field_description:technical_reports.field_technical_reports_advance_payment_inv__display_name
 msgid "Display Name"
 msgstr "Nome visualizzato"
@@ -316,9 +345,19 @@ msgid "Error! Journey starting date must be lower than its ending date."
 msgstr "Errore! La data di inizio viaggio deve essere minore della sua data di fine."
 
 #. module: technical_reports
+#: model:ir.model,name:technical_reports.model_calendar_event
+msgid "Event"
+msgstr "Evento"
+
+#. module: technical_reports
 #: model:ir.actions.report,name:technical_reports.external_reports
 msgid "External report"
 msgstr "Rapporto Esterno"
+
+#. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_travel_costs__fixed_cost
+msgid "Fixed Cost"
+msgstr "Costo Fissato"
 
 #. module: technical_reports
 #: model_terms:ir.ui.view,arch_db:technical_reports.view_technical_report_form
@@ -329,6 +368,11 @@ msgstr "Formazione"
 #: model:ir.model.fields,field_description:technical_reports.field_technical_report__users_ids
 msgid "Formation users list"
 msgstr "Lista Utenti Formazione"
+
+#. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_travel_costs__from_km
+msgid "From Km"
+msgstr "Da Km"
 
 #. module: technical_reports
 #: model_terms:ir.ui.view,arch_db:technical_reports.notes_filter
@@ -346,6 +390,7 @@ msgstr "Raggruppa per..."
 #: model:ir.model.fields,field_description:technical_reports.field_report_technical_reports_technical_reports_qweb__id
 #: model:ir.model.fields,field_description:technical_reports.field_technical_report__id
 #: model:ir.model.fields,field_description:technical_reports.field_technical_report_notes__id
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_travel_costs__id
 #: model:ir.model.fields,field_description:technical_reports.field_technical_reports_advance_payment_inv__id
 msgid "ID"
 msgstr ""
@@ -398,6 +443,7 @@ msgstr "Servizio di Manodopera"
 #: model:ir.model.fields,field_description:technical_reports.field_report_technical_reports_technical_reports_qweb____last_update
 #: model:ir.model.fields,field_description:technical_reports.field_technical_report____last_update
 #: model:ir.model.fields,field_description:technical_reports.field_technical_report_notes____last_update
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_travel_costs____last_update
 #: model:ir.model.fields,field_description:technical_reports.field_technical_reports_advance_payment_inv____last_update
 msgid "Last Modified on"
 msgstr "Ultima modifica il"
@@ -406,6 +452,7 @@ msgstr "Ultima modifica il"
 #: model:ir.model.fields,field_description:technical_reports.field_report_from_activity__write_uid
 #: model:ir.model.fields,field_description:technical_reports.field_technical_report__write_uid
 #: model:ir.model.fields,field_description:technical_reports.field_technical_report_notes__write_uid
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_travel_costs__write_uid
 #: model:ir.model.fields,field_description:technical_reports.field_technical_reports_advance_payment_inv__write_uid
 msgid "Last Updated by"
 msgstr "Ultimo aggiornamento di"
@@ -414,9 +461,15 @@ msgstr "Ultimo aggiornamento di"
 #: model:ir.model.fields,field_description:technical_reports.field_report_from_activity__write_date
 #: model:ir.model.fields,field_description:technical_reports.field_technical_report__write_date
 #: model:ir.model.fields,field_description:technical_reports.field_technical_report_notes__write_date
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_travel_costs__write_date
 #: model:ir.model.fields,field_description:technical_reports.field_technical_reports_advance_payment_inv__write_date
 msgid "Last Updated on"
 msgstr "Ultimo aggiornamento il"
+
+#. module: technical_reports
+#: model_terms:ir.ui.view,arch_db:technical_reports.view_calendar_event_form_extend
+msgid "Meeting Additional Info"
+msgstr "Info Addizionali Meeting"
 
 #. module: technical_reports
 #: code:addons/technical_reports/wizard/technical_report_make_invoice.py:47
@@ -446,6 +499,11 @@ msgstr "Da non fatturare"
 #: model_terms:ir.ui.view,arch_db:technical_reports.technical_reports_qweb_document
 msgid "Note"
 msgstr "Nota"
+
+#. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_calendar_event__note_traker
+msgid "Note Traker"
+msgstr "Chi prende nota"
 
 #. module: technical_reports
 #: model:ir.model.fields,field_description:technical_reports.field_technical_report__notes_ids
@@ -486,6 +544,11 @@ msgid "Prepaid"
 msgstr "Prepagato"
 
 #. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_calendar_event__presenter_ids
+msgid "Presenter"
+msgstr "Presentatore/i"
+
+#. module: technical_reports
 #: model:ir.model.fields,field_description:technical_reports.field_technical_reports_advance_payment_inv__product_id
 msgid "Product"
 msgstr "Prodotto"
@@ -513,7 +576,7 @@ msgstr "Attività Rapporto"
 #: model:ir.actions.act_window,name:technical_reports.action_notes
 #: model:ir.actions.act_window,name:technical_reports.action_reports
 msgid "Reports"
-msgstr "Rapporti Tecnici"
+msgstr "Resoconti"
 
 #. module: technical_reports
 #: model_terms:ir.ui.view,arch_db:technical_reports.project_setting_report
@@ -587,6 +650,11 @@ msgid "To Invoice"
 msgstr "Da Fatturare"
 
 #. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_travel_costs__to_km
+msgid "To Km"
+msgstr "A Km"
+
+#. module: technical_reports
 #: model_terms:ir.ui.view,arch_db:technical_reports.reports_filter
 #: model_terms:ir.ui.view,arch_db:technical_reports.view_technical_report_form
 #: selection:technical.report,state:0
@@ -614,6 +682,11 @@ msgstr "Prodotto Viaggio"
 #: model_terms:ir.ui.view,arch_db:technical_reports.view_res_company
 msgid "Update distances"
 msgstr "Aggiorna le distanze"
+
+#. module: technical_reports
+#: model:ir.model.fields,field_description:technical_reports.field_technical_report_travel_costs__variable_cost
+msgid "Variable Cost"
+msgstr "Costo Variabile"
 
 #. module: technical_reports
 #: model:ir.model.fields,field_description:technical_reports.field_technical_report_notes__worked
@@ -679,10 +752,5 @@ msgstr ""
 #. module: technical_reports
 #: model:ir.model,name:technical_reports.model_technical_report_travel_costs
 msgid "technical.report.travel.costs"
-msgstr ""
-
-#. module: technical_reports
-#: model:ir.model,name:technical_reports.model_travel_costs_transient
-msgid "travel.costs.transient"
 msgstr ""
 

@@ -16,6 +16,7 @@ class ResPartner(models.Model):
                                             'partner_id',
                                             string='Technical reports')
     distance = fields.Float(string="Distance (km)")
+    calendar_id = fields.Many2one('calendar.event')
 
     def _compute_technical_reports_count(self):
         for t in self:

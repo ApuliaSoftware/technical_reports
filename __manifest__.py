@@ -13,6 +13,7 @@
                 'base_geolocalize',
                 'account',
                 'project',
+                'calendar'
     ],
     'data': [
         'security/ir.model.access.csv',
@@ -28,7 +29,8 @@
         'views/partner_view.xml',
         'views/project_view.xml',
         'views/res_config_view.xml',
-        'views/res_company_view.xml'
+        'views/res_company_view.xml',
+        'views/calendar_views.xml'
     ],
     'installable': True
 }
