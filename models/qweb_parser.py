@@ -2,49 +2,49 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 from odoo import models, api
-from datetime import datetime
 
 
 class TechnicalReportsQweb(models.AbstractModel):
 
     _name = 'report.technical_reports.technical_reports_qweb'
 
-    @api.multi
-    def render_html(self, docids, data=None):
-        print (self.env.context, docids)
+    @api.model
+    def _get_report_values(self, docids, data=None):
+        report = self.env['ir.actions.report']._get_report_from_name(
+            'technical_reports.technical_reports_qweb')
 
         docs = self.env['technical.report'].browse(docids)
-
         docargs = {
             'timediff': self._timediff,
             'docs': docs,
+            'doc_ids': docids,
+            'doc_model': report.model
         }
-        return self.env['report'].render(
-            'technical_reports.technical_reports_qweb', docargs)
+        return docargs
 
     def _timediff(self, toDate, fromDate):
         if toDate and fromDate:
-            date1 = datetime.strptime(toDate, '%Y-%m-%d %H:%M:%S')
-            date2 = datetime.strptime(fromDate, '%Y-%m-%d %H:%M:%S')
-            result = date1 - date2
-            return result
+            return toDate - fromDate
 
 
 class ExternalReportsQweb(models.AbstractModel):
     _name = 'report.technical_reports.technical_reports_external_qweb'
 
-    @api.multi
-    def render_html(self, docids, data=None):
+    @api.model
+    def _get_report_values(self, docids, data=None):
+        report = self.env['ir.actions.report']._get_report_from_name(
+            'technical_reports.technical_reports_external_qweb')
+
         docs = self.env['technical.report'].browse(docids)
         docargs = {
             'timediff': self._timediff,
             'docs': docs,
+            'doc_ids': docids,
+            'doc_model': report.model
         }
-        return self.env['report'].render(
-            'technical_reports.technical_reports_external_qweb', docargs)
+        return docargs
 
     def _timediff(self, toDate, fromDate):
         if toDate and fromDate:
-            date1 = datetime.strptime(toDate, '%Y-%m-%d %H:%M:%S')
-            date2 = datetime.strptime(fromDate, '%Y-%m-%d %H:%M:%S')
-            return date1 - date2
+            if toDate and fromDate:
+                return toDate - fromDate

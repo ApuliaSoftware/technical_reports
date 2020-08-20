@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import fields, models, api
+import ast
+import json
 import requests
-import json, ast
+from odoo import fields, models, api
 
 
-class ResPartner (models.Model):
-
+class ResPartner(models.Model):
     _inherit = 'res.partner'
 
     technical_reports_count = fields.Integer(
@@ -24,12 +24,12 @@ class ResPartner (models.Model):
     def get_distance_from_partner(self, from_partner):
         partner_link = 'http://router.project-osrm.org/route/v1/driving/' \
                        '{part_long},{part_lat};{comp_long},{comp_lat}' \
-                       '?overview=false'\
+                       '?overview=false' \
             .format(part_long=str(self.partner_longitude),
-                   part_lat=str(self.partner_latitude),
-                   comp_long=str(from_partner.partner_longitude),
-                   comp_lat=str(from_partner.partner_latitude)
-                   )
+                    part_lat=str(self.partner_latitude),
+                    comp_long=str(from_partner.partner_longitude),
+                    comp_lat=str(from_partner.partner_latitude)
+                    )
         r = requests.get(partner_link)
         dict = r.json()
         data = ast.literal_eval(json.dumps(dict))
@@ -45,5 +45,5 @@ class ResPartner (models.Model):
         for partner in self:
             distance = self.get_distance_from_partner(
                 self.env.user.company_id.partner_id)
-            if distance:
+            if distance >= 0:
                 partner.distance = distance

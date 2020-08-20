@@ -4,7 +4,7 @@
         <record id="seq_techincal_reports" model="ir.sequence">
             <field name="name">Technical reports</field>
             <field name="code">technical.reports</field>
-            <field name="prefix">TR%(y)s</field>
+            <field name="prefix">TR/%(y)s/</field>
             <field name="padding">4</field>
             <field name="company_id" eval="False"/>
         </record>

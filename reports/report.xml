@@ -6,12 +6,12 @@
             <field name="default" eval="True"/>
             <field name="format">A4</field>
             <field name="orientation">Portrait</field>
-            <field name="margin_top">12</field>
+            <field name="margin_top">42</field>
             <field name="margin_bottom">30</field>
             <field name="margin_left">3</field>
             <field name="margin_right">3</field>
             <field name="header_line" eval="False"/>
-            <field name="header_spacing">10</field>
+            <field name="header_spacing">40</field>
             <field name="dpi">80</field>
         </record>
 
@@ -22,7 +22,7 @@
             report_type="qweb-pdf"
             name="technical_reports.technical_reports_qweb"
             file="technical_reports.technical_reports_qweb"
-            attachment="('I' + object.name + '.pdf')"
+            print_report_name="('I' + object.name + '.pdf')"
         />
         <report
             id="external_reports"
@@ -31,14 +31,14 @@
             report_type="qweb-pdf"
             name="technical_reports.technical_reports_external_qweb"
             file="technical_reports.technical_reports_external_qweb"
-            attachment="('E' + object.name + '.pdf')"
+            print_report_name="('E' + object.name + '.pdf')"
         />
 
-        <record id="technical_reports" model="ir.actions.report.xml">
+        <record id="technical_reports" model="ir.actions.report">
             <field name="paperformat_id" ref="technical_reports.paperformat_technical_report"/>
         </record>
 
-        <record id="external_reports" model="ir.actions.report.xml">
+        <record id="external_reports" model="ir.actions.report">
             <field name="paperformat_id" ref="technical_reports.paperformat_technical_report"/>
         </record>
     </data>

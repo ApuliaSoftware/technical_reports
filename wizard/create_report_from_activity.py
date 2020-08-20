@@ -34,6 +34,6 @@ class ReportFromActivity(models.TransientModel):
                 'res_model': 'technical.report',
                 'res_id': tec_rep.id,
                 'view_id': self.env.ref(
-                    'technical_reports.view_reports_form').id,
+                    'technical_reports.view_technical_report_form').id,
                 'target': 'current'
             }

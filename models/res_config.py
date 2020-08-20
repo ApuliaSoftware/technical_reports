@@ -4,12 +4,13 @@
 from odoo import api, fields, models
 
 
-class ProjectConfigSettings(models.TransientModel):
+class ResConfigSettings(models.TransientModel):
 
     _inherit = 'res.config.settings'
 
     labor_service_id = fields.Many2one(
-        related='company_id.labor_service_id', string="Labor service report")
-    travel_costs_ids = fields.One2many(
-        related="company_id.travel_costs_ids", string="Travel costs")
-    travel_product = fields.Many2one(related='company_id.travel_product')
+        related='company_id.labor_service_id', readonly=False)
+    # travel_costs_ids = fields.Many2many(
+    #     related="company_id.travel_costs_ids", readonly=False)
+    travel_product = fields.Many2one(related='company_id.travel_product',
+                                     readonly=False)

@@ -5,24 +5,15 @@
             <field name="name">reports.filter</field>
             <field name="model">technical.report</field>
             <field name="arch" type="xml">
-                <search string="search reports">
-                    <field name="name"/>
+                <search string="search web">
                     <field name="partner_id"/>
                     <field name="project_id"/>
                     <field name="project_activity_id"/>
-                    <field name="users_ids"/>
-                    <field name="partecipants_customer_description"/>
-                    <field name="start_journey_date"/>
-                    <field name="end_journey_date"/>
-                    <field name="start_activity_date"/>
-                    <field name="end_activity_date"/>
-                    <field name="activity_description"/>
-                    <field name="customer_note"/>
-                    <filter string="Prepaid" domain="[('order_type','=', 'prepaid')]"/>
-                    <filter string="Comsumptive" domain="[('order_type','=', 'consumptive')]"/>
-                    <filter string="To invoice" domain="[('to_invoice','=', True)]"/>
-                    <filter string="Not to invoice" domain="[('to_invoice','!=', False)]"/>
-                    <group expand="0" string="Group By">
+                    <filter name="prepaid" string="Prepaid" domain="[('order_type','=', 'prepaid')]"/>
+                    <filter name="comsumptive" string="Comsumptive" domain="[('order_type','=', 'consumptive')]"/>
+                    <filter name="to_invoice" string="To invoice" domain="[('to_invoice','=', True)]"/>
+                    <filter name="not_to_invoice" string="Not to invoice" domain="[('to_invoice','!=', True)]"/>
+                    <group expand="0" string="Group By...">
                         <filter name="partner_id" string="Partner" context="{'group_by':'partner_id'}"/>
                         <filter name="project_id" string="Project" context="{'group_by':'project_id'}"/>
                         <filter name="project_activity_id" string="Activity" context="{'group_by':'project_activity_id'}"/>
@@ -31,8 +22,8 @@
             </field>
         </record>
 
-        <record id="view_reports_tree" model="ir.ui.view">
-            <field name="name">view_reports_tree.tree</field>
+        <record id="view_technical_report_tree" model="ir.ui.view">
+            <field name="name">view_technical_report_tree</field>
             <field name="model">technical.report</field>
             <field name="type">tree</field>
             <field name="arch" type="xml">
@@ -51,8 +42,9 @@
             </field>
         </record>
 
-        <record id="view_reports_form" model="ir.ui.view">
-            <field name="name">view_reports_form.form</field>
+
+        <record id="view_technical_report_form" model="ir.ui.view">
+            <field name="name">view_technical_report_form</field>
             <field name="model">technical.report</field>
             <field name="type">form</field>
             <field name="arch" type="xml">
@@ -62,7 +54,7 @@
                          <button name="action_draft" state="draft" string="Cancel" type="object"
                                  attrs="{'invisible': [('state', '=', 'draft')]}"/>
                          <button name="%(action_technical_reports_advance_payment_inv)d" string="Create Invoice"
-                            type="action" class="btn-primary" states="to invoice"/>
+                            type="action" class="btn-primary" states="to invoice" groups="account.group_account_invoice"/>
                          <field name="state" widget="statusbar"/>
                     </header>
                     <group>
@@ -82,13 +74,13 @@
                         <group>
                             <div class="row">
                                 <div class="col-sm-7">
-                                    <label style="font-weight:bold" string="Intervention place"/>
+                                    <label style="font-weight:bold" string="Intervention Place" for=""/>
                                     <span style="color:silver">   |    </span>
-                                    <field name="intervention_place" string="Intervention place" domain="['|',('id', '=', partner_id), ('parent_id', '=', partner_id)]"
+                                    <field name="intervention_place" string="Intervention Place" domain="['|',('id', '=', partner_id), ('parent_id', '=', partner_id)]"
                                            attrs="{'readonly': ['|', ('state', '!=', 'draft'), ('partner_id', '=', False)]}"/>
                                 </div>
                                 <div class = "col-sm-3" attrs="{'invisible':[('intervention_place', '=', False)]}">
-                                    <label style="font-weight:bold" string="City"/>
+                                    <label style="font-weight:bold" string="City" for=""/>
                                     <span style="color:silver">   |    </span>
                                     <field name="city" string="City"/>
                                 </div>
@@ -97,18 +89,18 @@
                         <group>
                             <div class="row">
                                 <div class="col-sm-4">
-                                    <label style="font-weight:bold" string="Order type"/>
+                                    <label style="font-weight:bold" string="Order type" for=""/>
                                     <span style="color:silver">   |    </span>
                                     <field name="order_type" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
                                 </div>
                                 <div class="col-sm-4" attrs="{'invisible':['|', ('order_type', '=', 'consumptive'), ('order_type', '=', False)]}">
-                                    <label style="font-weight:bold" string="To invoice"/>
+                                    <label style="font-weight:bold" string="To invoice" for=""/>
                                     <span style="color:silver">   |    </span>
                                     <field name="to_invoice" string="To invoice"
                                            attrs="{'readonly': [('state', '!=', 'draft')]}"/>
                                 </div>
                                 <div class="col-sm-4"  attrs="{'invisible': [('invoice_id', '=', False)]}">
-                                    <label style="font-weight:bold" string="Invoice"/>
+                                    <label style="font-weight:bold" string="Invoice" for=""/>
                                     <span style="color:silver">   |    </span>
                                     <field name="invoice_id"/>
                                 </div>
@@ -130,8 +122,7 @@
                             <field name="activity_description"/>
                         </page>
                          <page string="Notes">
-                             <field name="notes_ids" context="{'default_partner_id': partner_id, 'default_report_id': id}"
-                                    attrs="{'readonly': [('state', '!=', 'draft')]}">
+                             <field name="notes_ids" attrs="{'readonly': [('state', '!=', 'draft')]}">
                                  <tree>
                                      <field name="date_and_hour"/>
                                      <field name="summary"/>
@@ -154,7 +145,7 @@
                                          </group>
                                      </group>
                                      <group>
-                                         <field name="report_id" attrs="{'invisible':1}"/>
+<!--                                         <field name="report_id" attrs="{'invisible':1}"/>-->
                                      </group>
                                  </form>
                              </field>
@@ -173,8 +164,8 @@
                              <field name="customer_note"/>
                          </page>
                     </notebook>
-                    <group>
-                    </group>
+<!--                    <group>-->
+<!--                    </group>-->
                     <!--group>
                         <field name="digital_sign" widget="signature" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
                     </group-->
@@ -189,6 +180,21 @@
             <field name="view_mode">tree,form</field>
         </record>
 
-        <menuitem id="action_menu_reports" parent="project.menu_project_management" name="Technical reports"  action="action_reports"/>
+        <menuitem id="action_technical_reports_menu" parent="project.menu_main_pm" name="Technical Reports" sequence="97"/>
+        <menuitem id="action_menu_reports" parent="technical_reports.action_technical_reports_menu" name="Technical reports"  action="action_reports"/>
+
+<!--        <record id="view_technical_report_travel_costs_tree" model="ir.ui.view">-->
+<!--            <field name="name">view_technical_report_travel_costs_tree</field>-->
+<!--            <field name="model">technical.report.travel.costs</field>-->
+<!--            <field name="type">tree</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <tree>-->
+<!--                    <field name="from_km"/>-->
+<!--                    <field name="to_km"/>-->
+<!--                    <field name="fixed_cost"/>-->
+<!--                    <field name="variable_cost"/>-->
+<!--                </tree>-->
+<!--            </field>-->
+<!--        </record>-->
     </data>
 </odoo>

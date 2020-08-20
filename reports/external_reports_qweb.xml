@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-
     <template id="technical_reports_external_qweb_document" inherit_id="technical_reports.technical_reports_qweb_document" primary="True">
-        <xpath expr="//div[@class='notes']" position="replace"></xpath>
-        <xpath expr="//table[@name='notes']" position="replace"></xpath>
+        <xpath expr="//div[@class='notes']" position="replace"/>
+        <xpath expr="//table[@name='notes']" position="replace"/>
     </template>
 
     <template id="technical_reports_external_qweb">
-        <t t-call="report.html_container">
+        <t t-call="web.html_container">
             <t t-foreach="docs" t-as="o">
                 <t t-call="technical_reports.technical_reports_external_qweb_document" t-lang="o.partner_id.lang"/>
             </t>
         </t>
     </template>
-
-
 </odoo>

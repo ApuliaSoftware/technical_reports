@@ -1,42 +1,55 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-
-        <record model="ir.ui.view" id="project_setting_report">
-            <field name="name">res.config.settings.view.form</field>
-            <field name="model">res.config.settings</field>
-            <field name="inherit_id" ref="project.res_config_settings_view_form"/>
-            <field name="arch" type="xml">
-                  <xpath expr="//group" position="after">
-                      <group string="Reports management" name="reports_management">
-                          <field name="labor_service_id" domain="[('type', '=', 'service')]"/>
-
-                          <field name="travel_costs_ids">
-                                 <tree editable="bottom">
-                                     <field name="from_km"/>
-                                     <field name="to_km"/>
-                                     <field name="fixed_cost"/>
-                                     <field name="variable_cost"/>
-                                 </tree>
-                                 <form>
-                                     <group>
-                                         <group>
-                                             <field name="from_km"/>
-                                             <field name="fixed_cost"/>
-                                         </group>
-                                         <group>
-                                             <field name="to_km"/>
-                                             <field name="variable_cost"/>
-                                         </group>
-                                     </group>
-                                 </form>
-                             </field>
-
-                          <field name="travel_product" domain="[('type', '=', 'service')]"/>
-                      </group>
-                  </xpath>
-            </field>
-        </record>
-
+    <record model="ir.ui.view" id="project_setting_report">
+        <field name="name">res.config.settings.view.form</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="project.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@data-key='project']" position="inside">
+                <h2>Reports Management</h2>
+                <div class="row mt16 o_settings_container">
+                    <div>
+                        <div class="o_setting_left_pane">
+                            <field name="labor_service_id" domain="[('type', '=', 'service')]"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="labor_service_id"/>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="o_setting_left_pane">
+                            <field name="travel_product" domain="[('type', '=', 'service')]"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="travel_product"/>
+                        </div>
+                    </div>
+<!--                    <div class="col-12 col-lg-6 o_setting_box">-->
+<!--                        <field name="travel_costs_ids">-->
+<!--                            <tree>-->
+<!--                                <field name="from_km"/>-->
+<!--                                <field name="to_km"/>-->
+<!--                                <field name="fixed_cost"/>-->
+<!--                                <field name="variable_cost"/>-->
+<!--                            </tree>-->
+<!--                            <form>-->
+<!--                                <group>-->
+<!--                                    <group>-->
+<!--                                        <field name="from_km"/>-->
+<!--                                        <field name="fixed_cost"/>-->
+<!--                                    </group>-->
+<!--                                    <group>-->
+<!--                                        <field name="to_km"/>-->
+<!--                                        <field name="variable_cost"/>-->
+<!--                                    </group>-->
+<!--                                </group>-->
+<!--                            </form>-->
+<!--                        </field>-->
+<!--                    </div>-->
+                </div>
+              </xpath>
+        </field>
+    </record>
 </odoo>
 
 

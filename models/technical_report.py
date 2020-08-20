@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import fields, models, api, _
+from odoo import api, fields, models, _
 from datetime import datetime
-from openerp.exceptions import UserError
+from odoo.exceptions import UserError
 
 
 class TechnicalReport(models.Model):
-
     _name = 'technical.report'
     _rec_name = "display_name"
 
@@ -29,8 +28,10 @@ class TechnicalReport(models.Model):
                                   string="Order type", required=True)
     to_invoice = fields.Boolean()
     customer_note = fields.Text()
-    #digital_sign = fields.Binary()
-    display_name = fields.Char(compute='_display_name')
+    # digital_sign = fields.Binary()
+    display_name = fields.Char(
+        compute='_display_name'
+    )
     notes_ids = fields.One2many(
         "technical.report.notes", "report_id", string="Notes")
     state = fields.Selection([
@@ -38,8 +39,8 @@ class TechnicalReport(models.Model):
         ('to invoice', 'To invoice'),
         ('done', 'Done')],
         string="state", default="draft")
-    invoice_id = fields.Many2one ("account.invoice", string="Invoice",
-                                  readonly=True)
+    invoice_id = fields.Many2one("account.invoice", string="Invoice",
+                                 readonly=True)
     intervention_place = fields.Many2one("res.partner")
     city = fields.Char(related="intervention_place.city", string="City",
                        store=True, readonly=True)
@@ -53,14 +54,16 @@ class TechnicalReport(models.Model):
                 sequence.append(n.project_id.name)
             if n.start_activity_date:
                 n.date_without_time = datetime.strptime(
-                    n.start_activity_date, "%Y-%m-%d %H:%M:%S").date()
+                    str(n.start_activity_date), "%Y-%m-%d %H:%M:%S").date()
                 n.convert_date = datetime.strftime(n.date_without_time,
                                                    "%Y-%m-%d")
                 sequence.append(n.convert_date)
             n.display_name = " - ".join(sequence)
 
-    @api.model
+    @api.model_create_multi
     def create(self, vals):
+        if isinstance(vals, list):
+            vals = vals[0]
         if vals.get('name', _('New')) == _('New'):
             vals['name'] = self.env['ir.sequence'].next_by_code(
                 'technical.reports') or _('New')
@@ -75,7 +78,7 @@ class TechnicalReport(models.Model):
     @api.multi
     def action_to_confirm(self):
         for o in self:
-            if o.to_invoice == False and o.order_type == 'prepaid':
+            if not o.to_invoice and o.order_type == 'prepaid':
                 o.state = 'done'
             else:
                 o.state = 'to invoice'
@@ -93,13 +96,13 @@ class TechnicalReport(models.Model):
 
     @api.multi
     @api.constrains('start_journey_date', 'end_journey_date',
-                  'start_activity_date', 'end_activity_date')
+                    'start_activity_date', 'end_activity_date')
     def check_date(self):
         for report in self:
             if not (report.start_journey_date and report.start_activity_date):
                 continue
 
-            if (report.start_activity_date < report.start_journey_date):
+            if report.start_activity_date < report.start_journey_date:
                 raise UserError(
                     _(
                         'Error'
@@ -109,7 +112,7 @@ class TechnicalReport(models.Model):
                     ))
             if not (report.start_activity_date and report.end_activity_date):
                 continue
-            if(report.start_activity_date > report.end_activity_date):
+            if report.start_activity_date > report.end_activity_date:
                 raise UserError(
                     _(
                         'Error'
@@ -119,7 +122,7 @@ class TechnicalReport(models.Model):
                     ))
             if not (report.end_activity_date and report.end_journey_date):
                 continue
-            if (report.end_activity_date > report.end_journey_date):
+            if report.end_activity_date > report.end_journey_date:
                 raise UserError(
                     _(
                         'Error'
@@ -129,7 +132,7 @@ class TechnicalReport(models.Model):
                     ))
             if not (report.start_journey_date and report.end_journey_date):
                 continue
-            if(report.start_journey_date > report.end_journey_date):
+            if report.start_journey_date > report.end_journey_date:
                 raise UserError(
                     _(
                         'Error'

@@ -5,6 +5,7 @@ from datetime import datetime
 from odoo import api, fields, models, _
 from odoo.exceptions import UserError
 
+
 def timediff(toDate, fromDate):
     if toDate and fromDate:
         date1 = datetime.strptime(toDate, '%Y-%m-%d %H:%M:%S')
@@ -33,17 +34,15 @@ class TechnicalReportsAdvancePaymentInv(models.TransientModel):
 
     @api.model
     def travel_cost(self, distance):
-        cost_rules = self.env['technical.report.travel.costs'].search([
-                ('from_km', '<=', distance),
-                ('to_km', '>=', distance)
-            ])
+        cost_rules = self.env['technical.report.travel.costs'].search(
+            [('from_km', '<=', distance), ('to_km', '>=', distance)])
         if not cost_rules:
             raise UserError(
                 _(
                     'A rule has not been defined for this kilometric value.'
                     ' You may have set it in a configuration menu. ')
-                )
-        elif len(cost_rules)>1:
+            )
+        elif len(cost_rules) > 1:
             raise UserError(
                 _(
                     'More rules has been defined for this kilometric value. '
@@ -57,7 +56,7 @@ class TechnicalReportsAdvancePaymentInv(models.TransientModel):
     product_id = fields.Many2one('product.product',
                                  default=_default_product_id)
     travel_product_id = fields.Many2one('product.product',
-                                 default=_default_travel_product_id)
+                                        default=_default_travel_product_id)
 
     @api.multi
     def _create_invoice(self, report):
@@ -75,7 +74,7 @@ class TechnicalReportsAdvancePaymentInv(models.TransientModel):
                 _(
                     'A labor service has not been defined. '
                     'You may have set it in a configuration menu.')
-                )
+            )
         if not report.end_activity_date or not report.start_activity_date:
             raise UserError(
                 _('Insert the start activity date and the end activity '
@@ -83,16 +82,15 @@ class TechnicalReportsAdvancePaymentInv(models.TransientModel):
             )
         else:
             invoice_lines = [(0, 0, {
-                'name': self.product_id.name +
-                        ' from ' +
-                        report.start_activity_date +
-                        ' to ' +
-                        report.end_activity_date,
+                'name': self.product_id.name + ' from ' +
+                        str(report.start_activity_date) + ' to ' +
+                        str(report.end_activity_date),
                 'origin': report.name,
                 'account_id': account_id,
                 'price_unit': self.product_id.list_price,
                 'quantity': timediff(
-                    report.end_activity_date, report.start_activity_date),
+                    str(report.end_activity_date),
+                    str(report.start_activity_date)),
                 'discount': 0.0,
                 'uom_id': self.product_id.uom_id.id,
                 'product_id': self.product_id.id,
@@ -113,20 +111,21 @@ class TechnicalReportsAdvancePaymentInv(models.TransientModel):
                     else:
                         travel_taxes_ids = False
                     invoice_lines.append((0, 0, {
-                    'name': self.travel_product_id.name +
+                        'name':
+                            self.travel_product_id.name +
                             ' of ' +
-                            report.name + ' ('
-                            + str(report.intervention_place.distance) + ' km)',
-                    'origin': report.name,
-                    'account_id': account_id,
-                    'price_unit': self.travel_cost(
-                        report.intervention_place.distance),
-                    'quantity': 1.0,
-                    'discount': 0.0,
-                    'uom_id': self.travel_product_id.uom_id.id,
-                    'product_id': self.travel_product_id.id,
-                    'invoice_line_tax_ids': travel_taxes_ids,
-                }))
+                            report.name + ' (' +
+                            str(report.intervention_place.distance) + ' km)',
+                        'origin': report.name,
+                        'account_id': account_id,
+                        'price_unit': self.travel_cost(
+                            report.intervention_place.distance),
+                        'quantity': 1.0,
+                        'discount': 0.0,
+                        'uom_id': self.travel_product_id.uom_id.id,
+                        'product_id': self.travel_product_id.id,
+                        'invoice_line_tax_ids': travel_taxes_ids,
+                    }))
             invoice = inv_obj.create({
                 'name': report.name,
                 'origin': report.name,

@@ -9,9 +9,9 @@ class ResCompany(models.Model):
     _inherit = 'res.company'
 
     labor_service_id = fields.Many2one('product.product',
-                                 string="Labor service report")
-    travel_costs_ids = fields.One2many(
-        "technical.report.travel.costs", "company_id", string="Travel costs")
+                                       string="Labor service")
+    # travel_costs_ids = fields.Many2many(
+    #     "technical.report.travel.costs", "company_id", string="Travel costs")
     travel_product = fields.Many2one('product.product')
 
     @api.multi

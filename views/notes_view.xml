@@ -68,6 +68,6 @@
             <field name="view_mode">tree,form</field>
         </record>
 
-        <menuitem id="action_menu_notes" parent="project.menu_project_management" name="Notes"  action="action_notes"/>
+        <menuitem id="action_menu_notes" parent="technical_reports.action_technical_reports_menu" name="Notes"  action="action_notes"/>
     </data>
 </odoo>
