@@ -4,56 +4,79 @@
         <t t-call="web.external_layout">
             <t t-set="o" t-value="o.with_context({'lang':o.partner_id.lang})"/>
             <div class="page">
-                <div class="row">
-                    <p>Spett. <strong><span t-field="o.partner_id.name"/></strong><br/>
-                        <span t-field="o.partner_id.street"/><br/>
-                        <span t-field="o.partner_id.city"/>
-                        <span t-field="o.partner_id.zip"/><br/>
-                        <span t-field="o.partner_id.country_id"/>
-                    </p>
-                </div><br/>
+                <p>Spett. <strong><span t-field="o.partner_id.name"/></strong><br/>
+                    <span t-field="o.partner_id.street"/><br/>
+                    <span t-field="o.partner_id.city"/>
+                    <span t-field="o.partner_id.zip"/><br/>
+                    <span t-field="o.partner_id.country_id"/>
+                </p>
+                <br/>
                 <h4><strong>Technical report n° </strong><span t-field="o.name"/></h4><br/>
 
-                <div class="row">
-                    <div class="col-xs-4"><strong>Project: </strong><span t-field="o.project_id.name"/></div>
-                    <div class="col-xs-4"><strong>Activity: </strong><span t-field="o.project_activity_id.name"/></div>
-                    <div class="col-xs-4"><strong>Order type: </strong><span t-field="o.order_type"/></div>
-                </div>
-
-                <div class="row">
-                    <div class="col-xs-4"><strong>Intervention Place: </strong><span t-field="o.intervention_place"/></div>
-                    <div class="col-xs-4"><strong>City: </strong><span t-field="o.city"/></div>
-                    <div class="col-xs-4"><strong>Street: </strong><span t-field="o.street"/></div>
-                </div><br/>
-
-                <div class="row">
-                    <div class="col-xs-4"><strong>Start journey: </strong><span t-field="o.start_journey_date"/></div>
-                    <div class="col-xs-4"><strong>End journey: </strong><span t-field="o.end_journey_date"/></div>
-                    <t t-if="o.end_journey_date">
-                        <t t-if="o.start_journey_date">
-                            <t t-set="journey" t-value="timediff(o.end_journey_date, o.start_journey_date)"/>
-                            <div class="col-xs-4"><strong>Time journey: </strong>
-                                <span t-esc="(journey.days*24)+(journey.seconds/3600)"/> hours
-                                <span t-esc="(journey.seconds%3600)/60"/> minutes
-                            </div>
-                        </t>
-                    </t>
-                </div>
-
-                <div class="row">
-                    <div class="col-xs-4"><strong>Start activity: </strong><span t-field="o.start_activity_date"/></div>
-                    <div class="col-xs-4"><strong>End activity: </strong><span t-field="o.end_activity_date"/></div>
-                    <t t-if="o.end_activity_date">
-                        <t t-if="o.start_activity_date">
-                            <t t-set="activity" t-value="timediff(o.end_activity_date, o.start_activity_date)"/>
-                            <div class="col-xs-4"><strong>Time activity: </strong>
-                                <span t-esc="(activity.days*24)+(activity.seconds/3600)"/> hours
-                                <span t-esc="(activity.seconds%3600)/60"/> minutes
-                            </div>
-                        </t>
-                    </t>
-                </div><br/><br/><br/>
-
+                <table>
+                    <tr>
+                        <td>
+                            <strong>Project: </strong><span t-field="o.project_id.name"/>
+                        </td>
+                        <td width="33%">
+                            <strong>Activity: </strong><span t-field="o.project_activity_id.name"/>
+                        </td>
+                        <td width="33%">
+                            <strong>Order type: </strong><span t-field="o.order_type"/>
+                        </td>
+                    </tr>
+                    <tr height="20px"/>
+                    <tr>
+                        <td>
+                            <strong>Intervention Place: </strong><span t-field="o.intervention_place"/>
+                        </td>
+                        <td width="33%">
+                            <strong>City: </strong><span t-field="o.city"/>
+                        </td>
+                        <td width="33%">
+                            <strong>Street: </strong><span t-field="o.street"/>
+                        </td>
+                    </tr>
+                    <tr height="20px"/>
+                    <tr>
+                        <td>
+                            <strong>Start journey: </strong><span t-field="o.start_journey_date"/>
+                        </td>
+                        <td>
+                            <strong>End journey: </strong><span t-field="o.end_journey_date"/>
+                        </td>
+                        <td>
+                            <t t-if="o.end_journey_date">
+                                <t t-if="o.start_journey_date">
+                                    <t t-set="journey" t-value="timediff(o.end_journey_date, o.start_journey_date)"/>
+                                    <strong>Time journey: </strong>
+                                    <span t-esc="(journey.days*24)+(journey.seconds/3600)"/> hours
+                                    <span t-esc="(journey.seconds%3600)/60"/> minutes
+                                </t>
+                            </t>
+                        </td>
+                    </tr>
+                    <tr height="20px"/>
+                    <tr>
+                        <td>
+                            <strong>Start activity: </strong><span t-field="o.start_activity_date"/>
+                        </td>
+                        <td>
+                            <strong>End activity: </strong><span t-field="o.end_activity_date"/>
+                        </td>
+                        <td>
+                            <t t-if="o.end_activity_date">
+                                <t t-if="o.start_activity_date">
+                                    <t t-set="activity" t-value="timediff(o.end_activity_date, o.start_activity_date)"/>
+                                    <strong>Time activity: </strong>
+                                    <span t-esc="(activity.days*24)+(activity.seconds/3600)"/> hours
+                                    <span t-esc="(activity.seconds%3600)/60"/> minutes
+                                </t>
+                            </t>
+                        </td>
+                    </tr>
+                </table>
+                <br/>
                 <strong>ACTIVITY</strong>
                 <table class="table table-bordered">
                     <tr><th style="background:grey; color:white;">Description</th></tr>

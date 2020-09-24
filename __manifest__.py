@@ -30,7 +30,8 @@
         'views/project_view.xml',
         'views/res_config_view.xml',
         'views/res_company_view.xml',
-        'views/calendar_views.xml'
+        'views/calendar_views.xml',
+        'reports/calendar_reports_qweb.xml',
     ],
     'installable': True
 }

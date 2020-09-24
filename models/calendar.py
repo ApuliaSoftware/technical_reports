@@ -9,7 +9,7 @@ class CalendarEvent(models.Model):
     _inherit = 'calendar.event'
 
     presenter_ids = fields.One2many('res.partner', 'calendar_id')
-    note_traker = fields.Many2one('res.partner')
+    note_tracker = fields.Many2one('res.partner')
     agenda_topics = fields.Text()
     action_items = fields.Text()
     conclusion = fields.Text()

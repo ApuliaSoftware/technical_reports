@@ -6,14 +6,21 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-20 14:45+0000\n"
-"PO-Revision-Date: 2020-08-20 14:45+0000\n"
+"POT-Creation-Date: 2020-09-24 10:19+0000\n"
+"PO-Revision-Date: 2020-09-24 10:19+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: technical_reports
+#: model_terms:ir.ui.view,arch_db:technical_reports.technical_reports_qweb_document
+msgid "<br/>\n"
+"                <strong>ACTIVITY</strong>"
+msgstr "<br/>\n"
+"                <strong>ATTIVITA'</strong>"
 
 #. module: technical_reports
 #: model_terms:ir.ui.view,arch_db:technical_reports.technical_reports_qweb_document
@@ -38,15 +45,6 @@ msgstr "<br/>\n"
 
 #. module: technical_reports
 #: model_terms:ir.ui.view,arch_db:technical_reports.technical_reports_qweb_document
-msgid "<br/><br/><br/>\n"
-"\n"
-"                <strong>ACTIVITY</strong>"
-msgstr "<br/><br/><br/>\n"
-"\n"
-"                <strong>ATTIVITA'</strong>"
-
-#. module: technical_reports
-#: model_terms:ir.ui.view,arch_db:technical_reports.technical_reports_qweb_document
 msgid "<strong>Activity: </strong>"
 msgstr "<strong>Attività: </strong>"
 
@@ -54,6 +52,26 @@ msgstr "<strong>Attività: </strong>"
 #: model_terms:ir.ui.view,arch_db:technical_reports.technical_reports_qweb_document
 msgid "<strong>City: </strong>"
 msgstr "<strong>Città: </strong>"
+
+#. module: technical_reports
+#: model_terms:ir.ui.view,arch_db:technical_reports.calendar_reports_qweb_document
+msgid "<strong>Date End:</strong>"
+msgstr "<strong>Data Fine:</strong>"
+
+#. module: technical_reports
+#: model_terms:ir.ui.view,arch_db:technical_reports.calendar_reports_qweb_document
+msgid "<strong>Date Start:</strong>"
+msgstr "<strong>Data Inizio:</strong>"
+
+#. module: technical_reports
+#: model_terms:ir.ui.view,arch_db:technical_reports.calendar_reports_qweb_document
+msgid "<strong>Date and time start: </strong>"
+msgstr "<strong>Data e Orario d'Inizio: "
+
+#. module: technical_reports
+#: model_terms:ir.ui.view,arch_db:technical_reports.calendar_reports_qweb_document
+msgid "<strong>Duration:</strong>"
+msgstr "<strong>Durata:</strong>"
 
 #. module: technical_reports
 #: model_terms:ir.ui.view,arch_db:technical_reports.technical_reports_qweb_document
@@ -79,6 +97,11 @@ msgstr "<strong>NOTE</strong>"
 #: model_terms:ir.ui.view,arch_db:technical_reports.technical_reports_qweb_document
 msgid "<strong>Order type: </strong>"
 msgstr "<strong>Tipo Ordine: </strong>"
+
+#. module: technical_reports
+#: model_terms:ir.ui.view,arch_db:technical_reports.calendar_reports_qweb_document
+msgid "<strong>Presenter/s: </strong>"
+msgstr "<strong>Presentatore/i: </strong>"
 
 #. module: technical_reports
 #: model_terms:ir.ui.view,arch_db:technical_reports.technical_reports_qweb_document
@@ -121,6 +144,11 @@ msgid "<strong>Time journey: </strong>"
 msgstr "<strong>Durata Viaggio: </strong>"
 
 #. module: technical_reports
+#: model_terms:ir.ui.view,arch_db:technical_reports.calendar_reports_qweb_document
+msgid "<strong>Who takes Notes: </strong>"
+msgstr "<strong>Chi prende nota: </strong>"
+
+#. module: technical_reports
 #: code:addons/technical_reports/wizard/technical_report_make_invoice.py:74
 #, python-format
 msgid "A labor service has not been defined. You may have set it in a configuration menu."
@@ -140,6 +168,7 @@ msgstr "Un prodotto viaggio non è stato definito. Dovresti impostarlo nel menu 
 
 #. module: technical_reports
 #: model:ir.model.fields,field_description:technical_reports.field_calendar_event__action_items
+#: model_terms:ir.ui.view,arch_db:technical_reports.calendar_reports_qweb_document
 msgid "Action Items"
 msgstr "Elementi d'Azione"
 
@@ -156,6 +185,7 @@ msgstr "Descrizione Attività"
 
 #. module: technical_reports
 #: model:ir.model.fields,field_description:technical_reports.field_calendar_event__agenda_topics
+#: model_terms:ir.ui.view,arch_db:technical_reports.calendar_reports_qweb_document
 msgid "Agenda Topics"
 msgstr "Argomenti del Meeting"
 
@@ -196,6 +226,11 @@ msgstr "Consuntivo"
 #. module: technical_reports
 #: model:ir.model.fields,field_description:technical_reports.field_calendar_event__conclusion
 msgid "Conclusion"
+msgstr "Conclusioni"
+
+#. module: technical_reports
+#: model_terms:ir.ui.view,arch_db:technical_reports.calendar_reports_qweb_document
+msgid "Conclusions"
 msgstr "Conclusioni"
 
 #. module: technical_reports
@@ -285,6 +320,7 @@ msgstr "Descrizione"
 
 #. module: technical_reports
 #: model:ir.model.fields,field_description:technical_reports.field_report_from_activity__display_name
+#: model:ir.model.fields,field_description:technical_reports.field_report_technical_reports_calendar_reports_qweb__display_name
 #: model:ir.model.fields,field_description:technical_reports.field_report_technical_reports_technical_reports_external_qweb__display_name
 #: model:ir.model.fields,field_description:technical_reports.field_report_technical_reports_technical_reports_qweb__display_name
 #: model:ir.model.fields,field_description:technical_reports.field_technical_report__display_name
@@ -386,6 +422,7 @@ msgstr "Raggruppa per..."
 
 #. module: technical_reports
 #: model:ir.model.fields,field_description:technical_reports.field_report_from_activity__id
+#: model:ir.model.fields,field_description:technical_reports.field_report_technical_reports_calendar_reports_qweb__id
 #: model:ir.model.fields,field_description:technical_reports.field_report_technical_reports_technical_reports_external_qweb__id
 #: model:ir.model.fields,field_description:technical_reports.field_report_technical_reports_technical_reports_qweb__id
 #: model:ir.model.fields,field_description:technical_reports.field_technical_report__id
@@ -439,6 +476,7 @@ msgstr "Servizio di Manodopera"
 
 #. module: technical_reports
 #: model:ir.model.fields,field_description:technical_reports.field_report_from_activity____last_update
+#: model:ir.model.fields,field_description:technical_reports.field_report_technical_reports_calendar_reports_qweb____last_update
 #: model:ir.model.fields,field_description:technical_reports.field_report_technical_reports_technical_reports_external_qweb____last_update
 #: model:ir.model.fields,field_description:technical_reports.field_report_technical_reports_technical_reports_qweb____last_update
 #: model:ir.model.fields,field_description:technical_reports.field_technical_report____last_update
@@ -472,6 +510,21 @@ msgid "Meeting Additional Info"
 msgstr "Info Addizionali Meeting"
 
 #. module: technical_reports
+#: model_terms:ir.ui.view,arch_db:technical_reports.calendar_reports_qweb_document
+msgid "Meeting Description"
+msgstr "Descrizione Meeting"
+
+#. module: technical_reports
+#: model_terms:ir.ui.view,arch_db:technical_reports.calendar_reports_qweb_document
+msgid "Meeting Infos"
+msgstr "Info Meeting"
+
+#. module: technical_reports
+#: model:ir.actions.report,name:technical_reports.calendar_reports
+msgid "Meeting Report"
+msgstr "Report Meeting"
+
+#. module: technical_reports
 #: code:addons/technical_reports/wizard/technical_report_make_invoice.py:47
 #, python-format
 msgid "More rules has been defined for this kilometric value. You may have modify them in a configuration menu. "
@@ -501,8 +554,8 @@ msgid "Note"
 msgstr "Nota"
 
 #. module: technical_reports
-#: model:ir.model.fields,field_description:technical_reports.field_calendar_event__note_traker
-msgid "Note Traker"
+#: model:ir.model.fields,field_description:technical_reports.field_calendar_event__note_tracker
+msgid "Note Tracker"
 msgstr "Chi prende nota"
 
 #. module: technical_reports
@@ -712,6 +765,11 @@ msgstr "minuti"
 #. module: technical_reports
 #: model:ir.model,name:technical_reports.model_report_from_activity
 msgid "report.from.activity"
+msgstr ""
+
+#. module: technical_reports
+#: model:ir.model,name:technical_reports.model_report_technical_reports_calendar_reports_qweb
+msgid "report.technical_reports.calendar_reports_qweb"
 msgstr ""
 
 #. module: technical_reports

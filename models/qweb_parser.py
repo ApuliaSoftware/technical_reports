@@ -48,3 +48,20 @@ class ExternalReportsQweb(models.AbstractModel):
         if toDate and fromDate:
             if toDate and fromDate:
                 return toDate - fromDate
+
+
+class CalendarReportsQweb(models.AbstractModel):
+    _name = 'report.technical_reports.calendar_reports_qweb'
+
+    @api.model
+    def _get_report_values(self, docids, data=None):
+        report = self.env['ir.actions.report']._get_report_from_name(
+            'technical_reports.calendar_reports_qweb')
+
+        docs = self.env['calendar.event'].browse(docids)
+        docargs = {
+            'docs': docs,
+            'doc_ids': docids,
+            'doc_model': report.model
+        }
+        return docargs

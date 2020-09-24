@@ -10,7 +10,7 @@
                     <page name="extra_info" string="Meeting Additional Info">
                         <group>
                             <field name="presenter_ids" widget="many2many_tags"/>
-                            <field name="note_traker"/>
+                            <field name="note_tracker"/>
                             <field name="agenda_topics"/>
                             <field name="action_items"/>
                             <field name="conclusion"/>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="calendar_reports_qweb_document">
+        <t t-call="web.external_layout">
+            <t t-set="o" t-value="o.with_context({'lang':o.partner_id.lang})"/>
+            <div class="page">
+                <h4><span t-field="o.name"/></h4><br/>
+                <table style="table-layout:fixed; width:100%;">
+                    <t t-if="o.allday">
+                        <tr>
+                            <td>
+                                <strong>Date Start:</strong><span t-field="o.start_date"/>
+                            </td>
+                            <td>
+                                <strong>Date End:</strong><span t-field="o.stop_date"/>
+                            </td>
+                        </tr>
+                    </t>
+                    <t t-else="">
+                        <tr>
+                            <td>
+                                <strong>Date and time start: </strong><span t-field="o.start_datetime"/>
+                            </td>
+                            <td>
+                                <strong>Duration:</strong><span t-field="o.duration"/>
+                            </td>
+                        </tr>
+                    </t>
+                    <tr height="20px"/>
+                </table>
+                <table class="table table-bordered">
+                    <tr><th style="background:grey; color:white;">Meeting Description</th></tr>
+                    <tr><td><span t-field="o.description"/></td></tr>
+                </table><br/>
+                <table class="table table-bordered">
+                    <tr>
+                        <th style="background:grey; color:white;">Meeting Infos</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Who takes Notes: </strong><span t-field="o.note_tracker"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Presenter/s: </strong>
+                             <t t-set="count" t-value="0"/>
+                            <t t-foreach="o.presenter_ids" t-as="n">
+                                <t t-if="count != 0">,</t> <span t-field="n.name"/>
+                                <t t-set="count" t-value="count+1"/>
+                            </t>
+                        </td>
+                    </tr>
+                </table><br/>
+                 <table class="table table-bordered">
+                    <tr>
+                        <th style="background:grey; color:white;">Agenda Topics</th>
+                    </tr>
+                    <tr><td><span t-field="o.agenda_topics"/></td></tr>
+                </table><br/>
+                 <table class="table table-bordered">
+                    <tr>
+                        <th style="background:grey; color:white;">Action Items</th>
+                    </tr>
+                    <tr><td><span t-field="o.action_items"/></td></tr>
+                </table><br/>
+                <table class="table table-bordered">
+                    <tr>
+                        <th style="background:grey; color:white;">Conclusions</th>
+                    </tr>
+                    <tr><td><span t-field="o.conclusion"/></td></tr>
+                </table><br/>
+            </div>
+        </t>
+    </template>
+
+    <template id="calendar_reports_qweb">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="technical_reports.calendar_reports_qweb_document" t-lang="o.partner_id.lang"/>
+            </t>
+        </t>
+    </template>
+</odoo>
